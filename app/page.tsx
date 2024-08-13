@@ -1,6 +1,7 @@
 import BackgroundGradient from "@/components/components/BackgroundGradient";
 import Banner from "@/components/sections/Banner";
 import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 import HowIWork from "@/components/sections/HowIWork";
 import Navbar from "@/components/sections/Navbar";
 import { Projects } from "@/components/sections/Projects";
@@ -28,6 +29,9 @@ export default function Home() {
           <HowIWork />
           <Testimonial />
           <Contact />
+          <div className="max-w-7xl mx-auto px-8">
+            <Footer />
+          </div>
         </div>
       </SmoothScroll>
     </>

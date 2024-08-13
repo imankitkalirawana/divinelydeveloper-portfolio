@@ -26,7 +26,11 @@ export function Projects() {
 
   return (
     <>
-      <section className="relative h-[300vh] w-full" ref={targetRef}>
+      <section
+        id="projects"
+        className="relative h-[300vh] w-full"
+        ref={targetRef}
+      >
         <div className="sticky top-0 flex h-screen items-start pb-8 overflow-hidden">
           <motion.div
             style={{ filter: backdrop }}
