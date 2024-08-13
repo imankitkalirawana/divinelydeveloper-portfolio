@@ -19,7 +19,7 @@ const Showreel = () => {
               <span>My Nice</span>
               <span className="text-[#32bcd6] relative font-ppneuemigraitalicbold -rotate-3">
                 <MeteoconsStar
-                  className="text-[#ec6ed5] absolute left-[30%] -top-[60%]"
+                  className="text-primary absolute left-[30%] -top-[60%]"
                   fontSize={80}
                 />
                 Showreels
@@ -31,7 +31,7 @@ const Showreel = () => {
                 help you showcase and represent your business.
               </p>
               <PhStarFourFill
-                className="text-[#ec6ed5] absolute left-10 top-[100%]"
+                className="text-primary absolute left-10 top-[100%]"
                 fontSize={50}
               />
             </div>

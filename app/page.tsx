@@ -1,25 +1,35 @@
 import BackgroundGradient from "@/components/components/BackgroundGradient";
 import Banner from "@/components/sections/Banner";
+import Contact from "@/components/sections/Contact";
+import HowIWork from "@/components/sections/HowIWork";
 import Navbar from "@/components/sections/Navbar";
-import Projects from "@/components/sections/Projects";
+import { Projects } from "@/components/sections/Projects";
 import Showreel from "@/components/sections/Showreel";
+import Testimonial from "@/components/sections/Testimonial";
 import Work from "@/components/sections/Work";
+import SmoothScroll from "@/components/smooth-scroll";
 import { Divider } from "@nextui-org/react";
 
 export default function Home() {
   return (
     <>
-      <div className="select-none">
-        <BackgroundGradient />
-        <div className="max-w-7xl mx-auto p-8">
-          <Navbar />
-          <Banner />
-          <Divider className="mb-12" />
-          <Showreel />
+      <SmoothScroll>
+        <div className="select-none">
+          <BackgroundGradient />
+
+          <div className="max-w-7xl mx-auto p-8">
+            <Navbar />
+            <Banner />
+            <Divider className="mb-12" />
+            <Showreel />
+          </div>
+          <Work />
+          <Projects />
+          <HowIWork />
+          <Testimonial />
+          <Contact />
         </div>
-        <Work />
-        <Projects />
-      </div>
+      </SmoothScroll>
     </>
   );
 }

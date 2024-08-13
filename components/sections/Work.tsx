@@ -1,6 +1,5 @@
 "use client";
 import { MeteoconsStar, PhStarFourFill } from "@/components/components/icons";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
@@ -16,27 +15,25 @@ const HorizontalScrollCarousel = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    // offset: ["start end", "end start"],
   });
 
-  // Transform to move from right (100%) to left (-100%)
-  const x = useTransform(scrollYProgress, [0, 1], ["52%", "-150%"]);
+  const x = useTransform(scrollYProgress, [0, 1.32], ["52%", "-150%"]);
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-end pb-8 overflow-hidden">
-        <div className="text-[80px] absolute top-0 left-[50%] translate-x-[-50%] leading-[80px] text-center mt-20">
+        <div className="text-[90px] absolute top-0 left-[50%] translate-x-[-50%] leading-[90px] text-center mt-20">
           <MeteoconsStar
-            className="text-[#ec6ed5] absolute -left-24 top-[40%]"
+            className="text-primary absolute -left-24 top-[40%]"
             fontSize={70}
           />
           <PhStarFourFill
-            className="text-[#ec6ed5] absolute left-[110%] top-[0%]"
+            className="text-primary absolute left-[110%] top-[0%]"
             fontSize={50}
           />
           <div>What I</div>
           <div className="flex gap-2">
-            <span className="font-ppneuemigraitalicbold text-[#30bdd6] -rotate-12 block">
+            <span className="font-ppneuemigraitalicbold text-secondary -rotate-12 block">
               Realllly
             </span>
             <span>Do?</span>
@@ -81,7 +78,7 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "/1.svg",
+    url: "/work-1.svg",
     title: "Title 1",
     id: 1,
     icon: "lucide:shapes",
@@ -89,7 +86,7 @@ const cards: CardType[] = [
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
   },
   {
-    url: "/2.svg",
+    url: "/work-2.svg",
     title: "Title 2",
     id: 2,
     icon: "lucide:shapes",
@@ -97,7 +94,7 @@ const cards: CardType[] = [
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
   },
   {
-    url: "/3.svg",
+    url: "/work-3.svg",
     title: "Title 3",
     id: 3,
     icon: "lucide:shapes",
@@ -105,7 +102,7 @@ const cards: CardType[] = [
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
   },
   {
-    url: "/4.svg",
+    url: "/work-4.svg",
     title: "Title 4",
     id: 4,
     icon: "lucide:shapes",
@@ -113,7 +110,7 @@ const cards: CardType[] = [
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
   },
   {
-    url: "/5.svg",
+    url: "/work-5.svg",
     title: "Title 5",
     id: 5,
     icon: "lucide:shapes",

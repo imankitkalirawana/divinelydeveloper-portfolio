@@ -20,7 +20,7 @@ const Banner = () => {
       <div className="flex flex-col justify-between items-center pb-52 text-[110px] leading-[110px]">
         <div className="mt-12">
           <span
-            className="relative before:content-['✦'] before:absolute before:text-[#ec6ed5] before:left-[70%] before:-top-14 before:text-7xl before:-rotate-12"
+            className="relative before:content-['✦'] before:absolute before:text-primary before:left-[70%] before:-top-14 before:text-7xl before:-rotate-12"
             style={{ color: color }}
           >
             DESIGN
@@ -32,7 +32,7 @@ const Banner = () => {
         </div>
         <div className="relative flex items-center">
           <MeteoconsStar
-            className="text-[#ec6ed5] absolute -left-5 -top-5"
+            className="text-primary absolute -left-5 -top-5"
             fontSize={50}
           />
           DEPLOY
