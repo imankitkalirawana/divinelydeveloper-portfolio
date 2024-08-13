@@ -1,8 +1,13 @@
+"use client";
 import React from "react";
 import WorkButton from "../animata/button/work-button";
 import { MeteoconsStar, PhStarFourFill } from "../components/icons";
+import { motion } from "framer-motion";
+import { useInView } from "react-hook-inview";
 
 const Showreel = () => {
+  const [ref, inView] = useInView();
+
   return (
     <>
       <div className="flex flex-col">
@@ -13,7 +18,13 @@ const Showreel = () => {
           </p>
           <WorkButton />
         </div>
-        <div className="bg-white text-black rounded-3xl flex flex-col p-8">
+        <motion.div
+          className="bg-white text-black rounded-3xl flex flex-col p-8"
+          ref={ref}
+          initial={{ opacity: 0, y: 100 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <div className="flex justify-between items-start">
             <div className="flex flex-col text-[80px] leading-[80px]">
               <span>My Nice</span>
@@ -45,7 +56,7 @@ const Showreel = () => {
             muted
             playsInline
           ></video>
-        </div>
+        </motion.div>
       </div>
     </>
   );

@@ -83,7 +83,7 @@ const cards: CardType[] = [
     title: (
       <div>
         Discussion <br />
-        <span className="text-primary font-ppneuemigraitalicbold">With Us</span>
+        <span className="text-primary font-ppneuemigraitalicbold">With Me</span>
       </div>
     ),
     id: 1,
@@ -142,7 +142,7 @@ const cards: CardType[] = [
     ),
     id: 5,
     description:
-      "You can give us a feedback or insight while we working on it, collaboration is a key!",
+      "You can give me a feedback or insight while we working on it, collaboration is a key!",
   },
   {
     title: (

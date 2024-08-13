@@ -11,7 +11,7 @@ const Navbar = () => {
           <Avatar src="/divinelydeveloper.jpg" />
           <h1>Bhuneshvar</h1>
         </div>
-        <ul className="flex gap-4">
+        <ul className="gap-4 hidden md:flex">
           <li>
             <Link href={"/"}>Home</Link>
           </li>
