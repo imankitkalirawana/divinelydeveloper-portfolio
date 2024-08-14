@@ -9,7 +9,7 @@ const Footer = () => {
           <Avatar src="/divinelydeveloper.jpg" />
           <h1 className="font-ppneuemachinaregular">Bhuneshvar</h1>
         </div>
-        <div className="flex flex-col md:flex-col mt-12 justify-between">
+        <div className="flex flex-col md:flex-row mt-12 justify-between">
           <div className="text-base flex flex-col">
             <span>divinelydeveloper@gmail.com</span>
             <span>Jhajjar, Haryana, India</span>

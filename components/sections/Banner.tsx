@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { MeteoconsStar } from "../components/icons";
+import { motion } from "framer-motion";
+import { useInView } from "react-hook-inview";
 
 const colors = ["#da68c5", "#35afc6", "#d68991"];
 
@@ -15,41 +17,129 @@ const Banner = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const [ref, inView] = useInView();
+
+  const [isOnce] = useState(true);
+
   return (
     <>
-      <div className="flex flex-col mt-24 md:mt-0 justify-between items-start md:items-center md:pb-52 pb-24 text-[70px] leading-[70px] md:text-[110px] md:leading-[110px]">
-        <div className="mt-12">
-          <span
-            className="relative before:content-['✦'] before:absolute before:text-primary before:left-[70%] before:-top-14 before:text-7xl before:-rotate-12"
+      <div
+        ref={ref}
+        className="flex flex-col mt-24 md:mt-0 justify-between items-start md:items-center md:pb-52 pb-24 text-[70px] leading-[70px] md:text-[110px] md:leading-[110px]"
+      >
+        <div className="mt-12 relative">
+          <motion.img
+            src="/sparkle-filled.svg"
+            width={70}
+            className="absolute left-[60%] translate-x-[-50%] top-[-45%]"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, scale: 2, rotate: 0 },
+              visible: { opacity: 1, scale: 1, rotate: -30 },
+            }}
+            transition={{ duration: 1 }}
+            viewport={{ once: isOnce }}
+          />
+          <motion.div
             style={{ color: color }}
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, y: 50, scale: 0.5 },
+              visible: { opacity: 1, y: 0, scale: 1 },
+            }}
+            transition={{ duration: 1 }}
+            viewport={{ once: isOnce }}
           >
             DESIGN
-          </span>
+          </motion.div>
         </div>
-        <div className="flex items-center">
-          <Icon
-            icon="gravity-ui:code"
-            color="#ec6ed5"
-            className="hidden md:block"
-          />
-          <span className="font-ppneuemigraitalicbold">DEVELOP</span>
+        <div className="flex relative items-center">
+          <motion.svg
+            viewBox={"0 0 16 16"}
+            width="1em"
+            height="1em"
+            xmlns="http://www.w3.org/2000/svg"
+            // shake animation
+            initial="hidden"
+            viewport={{ once: isOnce }}
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, scale: 0.5 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+              },
+            }}
+            transition={{ duration: 1 }}
+            className={"hidden md:block"}
+          >
+            <motion.path
+              d="M10.218 3.216a.75.75 0 0 0-1.436-.431l-3 10a.75.75 0 0 0 1.436.43zM4.53 4.97a.75.75 0 0 1 0 1.06L2.56 8l1.97 1.97a.75.75 0 0 1-1.06 1.06l-2.5-2.5a.75.75 0 0 1 0-1.06l2.5-2.5a.75.75 0 0 1 1.06 0m6.94 6.06a.75.75 0 0 1 0-1.06L13.44 8l-1.97-1.97a.75.75 0 0 1 1.06-1.06l2.5 2.5a.75.75 0 0 1 0 1.06l-2.5 2.5a.75.75 0 0 1-1.06 0"
+              stroke="currentColor"
+              fill={"currentColor"}
+              strokeWidth="0.5"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: isOnce }}
+              variants={{
+                hidden: {
+                  pathLength: 0,
+                  stroke: "#fff",
+                  fill: "#fff",
+                },
+                visible: {
+                  pathLength: 1,
+                  stroke: "#ec6fd5",
+                  fill: "#ec6fd5",
+                },
+              }}
+              transition={{ duration: 3, delay: 1 }}
+            />
+          </motion.svg>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, y: 50, scale: 0.5 },
+              visible: { opacity: 1, y: 0, scale: 1 },
+            }}
+            viewport={{ once: isOnce }}
+            transition={{ duration: 1, delay: 0.1 }}
+          >
+            DEVELOP
+          </motion.div>
         </div>
         <div className="relative flex items-center">
-          <MeteoconsStar
-            className="text-primary absolute -left-5 -top-5"
-            fontSize={50}
+          <img
+            src="/sparkle.svg"
+            width={70}
+            className="absolute left-[-30%] translate-x-[-50%] top-[-150%]"
+            alt=""
           />
-          DEPLOY
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, y: 50, scale: 0.5 },
+              visible: { opacity: 1, y: 0, scale: 1 },
+            }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="flex"
+            viewport={{ once: isOnce }}
+          >
+            DEPLOY
+          </motion.div>
           <Icon icon="noto:rocket" />
-          <span>
-            <Image
-              src="/holographic-wire.svg"
-              alt="holographic-wire"
-              width={200}
-              height={200}
-              className="absolute left-[-50%] top-0 select-none"
-            />
-          </span>
+          <Image
+            src="/holographic-wire.svg"
+            alt="holographic-wire"
+            width={200}
+            height={200}
+            className="absolute left-[-50%] top-0 select-none"
+          />
         </div>
       </div>
     </>

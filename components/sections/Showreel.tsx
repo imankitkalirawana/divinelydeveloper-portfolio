@@ -54,7 +54,7 @@ const Showreel = () => {
             </div>
           </div>
           <video
-            className="w-full rounded-3xl mt-8"
+            className="w-full rounded-3xl mt-8 pointer-events-none"
             src="/showreel.mp4"
             controls={false}
             autoPlay={true}

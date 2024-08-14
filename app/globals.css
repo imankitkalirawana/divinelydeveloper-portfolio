@@ -68,3 +68,11 @@
   font-family: "ClashDisplayMedium";
   src: url("/fonts/Clash_Display_Medium.otf");
 }
+
+video::-webkit-media-controls {
+  display: none !important;
+  opacity: 0;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}

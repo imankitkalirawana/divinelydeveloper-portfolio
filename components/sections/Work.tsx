@@ -1,5 +1,4 @@
 "use client";
-import { MeteoconsStar, PhStarFourFill } from "@/components/components/icons";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
