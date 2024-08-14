@@ -21,7 +21,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto p-8">
             <Navbar />
             <Banner />
-            <Divider className="mb-12" />
+            <hr className="border-default my-4 border-1" />
             <Showreel />
           </div>
           <Work />

@@ -9,12 +9,12 @@ const Footer = () => {
           <Avatar src="/divinelydeveloper.jpg" />
           <h1 className="font-ppneuemachinaregular">Bhuneshvar</h1>
         </div>
-        <div className="flex mt-12 justify-between">
+        <div className="flex flex-col md:flex-col mt-12 justify-between">
           <div className="text-base flex flex-col">
             <span>divinelydeveloper@gmail.com</span>
             <span>Jhajjar, Haryana, India</span>
           </div>
-          <div className="flex gap-2">
+          <div className="flex mt-8 md:mt-0 flex-col md:flex-row gap-2">
             <Button
               variant="bordered"
               className="border-white border-1"

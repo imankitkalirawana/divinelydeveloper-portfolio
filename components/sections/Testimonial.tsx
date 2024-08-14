@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "../animata/background/grid";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -9,10 +9,16 @@ const Testimonial = () => {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <>
-      <Grid size={100} className="mt-36 pt-20 px-12">
-        <div className="text-[90px] flex flex-col items-center leading-[90px] text-center">
+      <Grid size={100} className="mt-36 pt-20 px-4 overflow-hidden md:px-12">
+        <div className="text-[50px] leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[90px] text-center">
           <div>What My</div>
           <div className="flex gap-2">
             <span className="font-ppneuemigraitalicbold text-secondary -rotate-12 block">
@@ -21,14 +27,17 @@ const Testimonial = () => {
             <span>Say?</span>
           </div>
         </div>
-        <div className="flex gap-16 mt-12 flex-col items-center">
-          <div className="flex gap-16" ref={ref1}>
+        <div className="flex gap-24 md:gap-16 mt-12 flex-col items-center">
+          <div
+            className="flex flex-col md:flex-row gap-28 md:gap-16"
+            ref={ref1}
+          >
             <motion.div
               className="relative"
               initial={{ opacity: 0, y: 100, rotate: 0 }}
               animate={
                 inView1
-                  ? { opacity: 1, y: 0, rotate: -6 }
+                  ? { opacity: 1, y: 0, rotate: isMobile ? -3 : -6 }
                   : { opacity: 0, y: 50, rotate: 0 }
               }
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -42,7 +51,7 @@ const Testimonial = () => {
               initial={{ opacity: 0, y: 100, rotate: 0 }}
               animate={
                 inView1
-                  ? { opacity: 1, y: 0, rotate: 6 }
+                  ? { opacity: 1, y: 0, rotate: isMobile ? 3 : 6 }
                   : { opacity: 0, y: 50, rotate: 0 }
               }
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -52,7 +61,10 @@ const Testimonial = () => {
               <Tape className="bottom-[0%] translate-y-[45%] left-0 translate-x-[-15%] rotate-[13deg]" />
             </motion.div>
           </div>
-          <div className="flex gap-16" ref={ref2}>
+          <div
+            className="flex flex-col md:flex-row gap-24 md:gap-16"
+            ref={ref2}
+          >
             <motion.div
               className="relative"
               initial={{ opacity: 0, y: 100, rotate: 6 }}
@@ -72,7 +84,7 @@ const Testimonial = () => {
               initial={{ opacity: 0, y: 100, rotate: 0 }}
               animate={
                 inView2
-                  ? { opacity: 1, y: 0, rotate: -8 }
+                  ? { opacity: 1, y: 0, rotate: isMobile ? 6 : -8 }
                   : { opacity: 0, y: 50, rotate: 0 }
               }
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -104,7 +116,7 @@ const Card = ({ card, className }: { card: CardType; className?: string }) => {
     <div
       key={card.id}
       className={cn(
-        "flex gap-4 rounded-3xl w-[400px] p-8 aspect-square items-start bg-default",
+        "flex gap-4 rounded-3xl md:w-[400px] p-8 aspect-square items-start bg-default",
         className,
       )}
     >

@@ -1,7 +1,7 @@
 "use client";
 import { MeteoconsStar, PhStarFourFill } from "@/components/components/icons";
 import { motion, useTransform, useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Work = () => {
   return (
@@ -17,19 +17,31 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1.32], ["52%", "-150%"]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1.32],
+    [isMobile ? "16%" : "52%", "-150%"],
+  );
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-end pb-8 overflow-hidden">
-        <div className="text-[90px] absolute top-0 left-[50%] translate-x-[-50%] leading-[90px] text-center mt-20">
-          <MeteoconsStar
-            className="text-primary absolute -left-24 top-[40%]"
-            fontSize={70}
+        <div className="absolute top-0 left-[50%] translate-x-[-50%] text-[60px] leading-[60px] md:text-[80px] md:leading-[80px] text-center mt-20">
+          <img
+            src="/sparkle.svg"
+            width={70}
+            className="text-primary absolute -left-[12%] md:-left-[30%] top-[40%]"
           />
-          <PhStarFourFill
-            className="text-primary absolute left-[110%] top-[0%]"
-            fontSize={50}
+          <img
+            src="/sparkle-filled.svg"
+            width={70}
+            className="text-primary absolute left-[90%] md:left-[110%] top-[0%]"
           />
           <div>What I</div>
           <div className="flex gap-2">
@@ -39,8 +51,7 @@ const HorizontalScrollCarousel = () => {
             <span>Do?</span>
           </div>
         </div>
-        <img src="/shape-2.svg" className="absolute -bottom-36" alt="" />
-
+        <img src="/shape-2.svg" className="absolute md:-bottom-36" alt="" />
         <motion.div style={{ x }} className="flex gap-8 w-[700vw]">
           {cards.map((card) => (
             <Card card={card} key={card.id} />
