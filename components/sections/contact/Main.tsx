@@ -174,7 +174,7 @@ const Main = () => {
                 </p>
               </ModalHeader>
               <ModalBody className="bg-default rounded-2xl mb-4 p-4">
-                <h3 className="uppercase text-sm">What's next?</h3>
+                <h3 className="uppercase text-sm">What&apos;s next?</h3>
                 <p className="text-sm text-foreground-500">
                   Our team will get back to you within 24 hours. In the
                   meantime, you can check our{" "}
