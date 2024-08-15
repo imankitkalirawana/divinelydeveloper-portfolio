@@ -3,7 +3,7 @@ import Marquee from "@/components/magicui/marquee";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { Image } from "@nextui-org/react";
-import { AnimatedBeamDemo } from "./AnimatedBeams";
+import { AnimatedBeamMain } from "./AnimatedBeams";
 
 const Skills = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -32,7 +32,7 @@ const Skills = () => {
   return (
     <>
       <section
-        id="projects"
+        id="skills"
         className="relative h-[300vh] w-full"
         ref={targetRef}
       >
@@ -60,7 +60,7 @@ const Skills = () => {
             {/* {skills.slice(0, 5).map((skill) => (
               <SkillCard skill={skill} />
             ))} */}
-            <AnimatedBeamDemo />
+            <AnimatedBeamMain />
           </motion.div>
         </div>
       </section>

@@ -43,7 +43,7 @@ const stats: StatType[] = [
         Projects
       </>
     ),
-    value: "100",
+    value: "50",
   },
   {
     title: (
@@ -52,7 +52,7 @@ const stats: StatType[] = [
         Clients
       </>
     ),
-    value: "50",
+    value: "10",
   },
   {
     title: (
@@ -61,7 +61,7 @@ const stats: StatType[] = [
         Experience
       </>
     ),
-    value: "5",
+    value: "3",
   },
 ];
 

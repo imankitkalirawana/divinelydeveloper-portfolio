@@ -146,28 +146,28 @@ const cards: CardType[] = [
     id: 1,
     title: "Great Services!",
     description:
-      "I recently had the pleasure of working with Plainthing Studio on a branding project for my company. From start to finish, the team at Plainthing was professional, responsive, and incredibly talented. They listened to my vision and brought it to life in a way that exceeded my expectations. The end result was a stunning and cohesive brand that perfectly captured the essence of my business.",
-    name: "MH Ventures",
+      "Working with Divinely Developer (Bhuneshvar) was a fantastic experience. Bhuneshvar understood our vision perfectly and turned it into a stunning and functional website that truly represents our clinic. His professionalism and expertise were evident throughout the project. We highly recommend him to anyone in need of a skilled developer.",
+    name: "Shailung Polyclinic",
   },
   {
     id: 2,
     title: "Good Quality work!",
     description:
-      "Plainthing Studio completely transformed the user experience on our website. Their team of UI/UX designers took the time to understand our business and create a design that was not only visually appealing, but also intuitive and easy to navigate. We've seen a significant increase in website traffic and conversions since the redesign, and we couldn't be happier with the results. Thank you, Plainthing Studio!",
-    name: "Sliksafe",
+      "We're very pleased with the website Bhuneshvar developed. The design is modern, aligns perfectly with our brand, and is easy to navigate. Bhuneshvar quickly understood our needs and delivered exactly what we wanted. Since launch, we've seen increased engagement and positive feedback. Highly recommended!",
+    name: "BRO Audio",
   },
   {
     id: 3,
     title: "Top Notch!",
     description:
-      "As a startup, we were looking for a design agency that could not only bring our vision to life, but also offer valuable insights and suggestions. Plainthing Studio exceeded our expectations in every way. They provided top-notch UI/UX design services and helped us create a product that our users love. We highly recommend Plainthing Studio to anyone looking to improve their online presence.",
-    name: "Wapel HR",
+      "As a startup, we needed a developer who could not only bring our vision to life but also guide us with valuable insights. Bhuneshvar exceeded our expectations in every way. He provided exceptional web development services and helped us create a platform that our users love. We highly recommend Bhuneshvar to anyone looking to enhance their online presence.",
+    name: "FOD Living",
   },
   {
     id: 4,
     title: "So Expert!",
     description:
-      "As a startup, we were looking for a design agency that could not only bring our vision to life, but also offer valuable insights and suggestions. Plainthing Studio exceeded our expectations in every way. They provided top-notch UI/UX design services and helped us create a product that our users love. We highly recommend Plainthing Studio to anyone looking to improve their online presence.",
+      "As a growing institution, we needed a developer who could bring our vision to life and provide valuable guidance along the way. Bhuneshvar exceeded our expectations in every aspect. He delivered top-notch web development services and helped us create a user-friendly platform that our students and staff love. We highly recommend Bhuneshvar to anyone looking to enhance their online presence.",
     name: "Halahi",
   },
 ];

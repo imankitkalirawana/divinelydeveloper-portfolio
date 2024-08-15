@@ -76,7 +76,7 @@ const Banner = () => {
               visible: { opacity: 1, y: 0, scale: 1 },
             }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="flex uppercase text-[50px]"
+            className="flex uppercase text-[50px] md:text-[110px]"
             viewport={{ once: isOnce }}
           >
             Creativity

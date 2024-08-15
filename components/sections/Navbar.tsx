@@ -27,7 +27,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href={"#projects"}
+              href={"/#projects"}
               className="hover:underline hover:text-secondary"
             >
               Projects
@@ -35,7 +35,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href={"#services"}
+              href={"/#services"}
               className="hover:underline hover:text-secondary"
             >
               Services
