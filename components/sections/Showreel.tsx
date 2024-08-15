@@ -16,7 +16,12 @@ const Showreel = () => {
             We are Design Agency Specialized in Illustrations, UI/UX Design and
             Motion Graphic Based in Indonesia
           </p>
-          <WorkButton className="w-full mt-4 md:w-fit" />
+          <WorkButton
+            className="w-full mt-4 md:w-fit"
+            onClick={() => {
+              window.location.href = "/contact";
+            }}
+          />
         </div>
         <motion.div
           className="bg-white text-black rounded-3xl flex flex-col p-6 md:p-8"

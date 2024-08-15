@@ -5,12 +5,15 @@ import { Button } from "@nextui-org/react";
 export default function WorkButton({
   className,
   onClick,
+  isLoading,
 }: {
   className?: string;
   onClick?: () => void;
+  isLoading?: boolean;
 }) {
   return (
     <Button
+      isLoading={isLoading}
       className={cn(
         "group relative overflow-hidden rounded-full bg-gradient-to-r from-[#dd32da] to-[#7618e3] px-8 py-6 text-base",
         className,
