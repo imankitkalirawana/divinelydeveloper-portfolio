@@ -1,9 +1,44 @@
 "use client";
 import React from "react";
-import { Avatar, Image, Input, Textarea } from "@nextui-org/react";
+import { Avatar, Button, Image, Input, Textarea } from "@nextui-org/react";
 import WorkButton from "@/components/animata/button/work-button";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Main = () => {
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    phone: Yup.string().notRequired(),
+    message: Yup.string().required("Message is required").min(10).max(2000),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+    validationSchema,
+    onSubmit: async (values) => {
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+        if (response.ok) {
+          alert("Message sent successfully");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  });
+
   return (
     <>
       <section className="relative pb-8 flex gap-12 font-ppneuemachinaregular">
@@ -21,30 +56,23 @@ const Main = () => {
           </div>
         </div>
         <div className="flex justify-center w-[60%] flex-col gap-8">
-          <div className="flex gap-8">
-            <Input
-              placeholder="John"
-              size="lg"
-              label="First Name"
-              labelPlacement="outside"
-              className="group w-1/2"
-              classNames={{
-                inputWrapper: ["group-hover:bg-default"],
-              }}
-              autoComplete="given-name"
-            />
-            <Input
-              placeholder="Doe"
-              size="lg"
-              label="Last Name"
-              labelPlacement="outside"
-              className="group w-1/2"
-              classNames={{
-                inputWrapper: ["group-hover:bg-default"],
-              }}
-              autoComplete="family-name"
-            />
-          </div>
+          <Input
+            placeholder="John Doe"
+            size="lg"
+            label="Name"
+            labelPlacement="outside"
+            className="group"
+            classNames={{
+              inputWrapper: ["group-hover:bg-default"],
+            }}
+            autoComplete="given-name"
+            name="name"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+            isInvalid={formik.touched.name && formik.errors.name ? true : false}
+            errorMessage={formik.errors.name}
+          />
+
           <Input
             placeholder="johndoe@example.com"
             size="lg"
@@ -56,6 +84,13 @@ const Main = () => {
               inputWrapper: ["group-hover:bg-default"],
             }}
             autoComplete="email"
+            name="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            isInvalid={
+              formik.touched.email && formik.errors.email ? true : false
+            }
+            errorMessage={formik.errors.email}
           />
           <Input
             placeholder="+91 1234567890"
@@ -67,6 +102,13 @@ const Main = () => {
               inputWrapper: ["group-hover:bg-default"],
             }}
             autoComplete="tel"
+            name="phone"
+            onChange={formik.handleChange}
+            value={formik.values.phone}
+            isInvalid={
+              formik.touched.phone && formik.errors.phone ? true : false
+            }
+            errorMessage={formik.errors.phone}
           />
           <Textarea
             placeholder="Your message here"
@@ -78,8 +120,21 @@ const Main = () => {
               inputWrapper: ["group-hover:bg-default"],
             }}
             isRequired
+            name="message"
+            onChange={formik.handleChange}
+            value={formik.values.message}
+            isInvalid={
+              formik.touched.message && formik.errors.message ? true : false
+            }
           />
-          <WorkButton className="w-full" />
+          <Button
+            onPress={() => {
+              formik.handleSubmit();
+            }}
+          >
+            Submit
+          </Button>
+          <WorkButton className="w-full" onClick={formik.handleSubmit} />
         </div>
       </section>
     </>
