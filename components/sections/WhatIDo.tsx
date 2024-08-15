@@ -2,7 +2,7 @@
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-const Work = () => {
+const WhatIDo = () => {
   return (
     <div>
       <HorizontalScrollCarousel />
@@ -51,8 +51,8 @@ const HorizontalScrollCarousel = () => {
           </div>
         </div>
         <img src="/shape-2.svg" className="absolute md:-bottom-36" alt="" />
-        <motion.div style={{ x }} className="flex gap-8 w-[700vw]">
-          {cards.map((card) => (
+        <motion.div style={{ x }} className="flex gap-8 w-[700vw] mb-12">
+          {cards.slice(0, 5).map((card) => (
             <Card card={card} key={card.id} />
           ))}
         </motion.div>
@@ -65,18 +65,20 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group rounded-[30px] p-8 bg-[#2a272ea9] backdrop-blur-sm relative h-[400px] w-[450px] overflow-hidden"
+      className="group rounded-[30px] p-4 md:p-8 bg-[#2a272ea9] backdrop-blur-sm relative w-[300px] h-[300px] md:h-[400px] md:w-[450px] overflow-hidden"
     >
-      <img src={card.url} width={150} />
-      <h3 className="text-[32px] mt-4">{card.title}</h3>
-      <p className=" font-ppneuemachinaregular mt-4 text-[16px]">
+      <img src={card.url} className="size-24 md:size-36" />
+      <h3 className="text-[24px] leading-[24px] md:leading-[28px] md:text-[28px] mt-4">
+        {card.title}
+      </h3>
+      <p className="font-ppneuemachinaregular mt-4 text-[14px] md:text-base">
         {card.description}
       </p>
     </div>
   );
 };
 
-export default Work;
+export default WhatIDo;
 
 type CardType = {
   url: string;
@@ -88,41 +90,48 @@ type CardType = {
 
 const cards: CardType[] = [
   {
-    url: "/work-1.svg",
-    title: "Title 1",
+    url: "/work-2.svg",
+    title: "Web Development",
     id: 1,
     icon: "lucide:shapes",
     description:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "I create responsive websites that allow the user to experience your website in the best and most appropriate way suited to the device they are using.",
   },
   {
-    url: "/work-2.svg",
-    title: "Title 2",
+    url: "/work-1.svg",
+    title: "UX/UI Design",
     id: 2,
     icon: "lucide:shapes",
     description:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-  },
-  {
-    url: "/work-3.svg",
-    title: "Title 3",
-    id: 3,
-    icon: "lucide:shapes",
-    description:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Website Design? User Interface Design? User Experience Design? I love doing that for you.",
   },
   {
     url: "/work-4.svg",
-    title: "Title 4",
+    title: "Animations & Designs",
+    id: 3,
+    icon: "lucide:shapes",
+    description:
+      "Boring websites? Not on my watch. I create animations to make your website more interactive.",
+  },
+  {
+    url: "/work-3.svg",
+    title: "Database Management",
     id: 4,
     icon: "lucide:shapes",
     description:
-      "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+      "Storage and management of data is crucial. I can help you with that.",
   },
   {
     url: "/work-5.svg",
-    title: "Title 5",
+    title: "Deployment & Maintenance",
     id: 5,
+    icon: "lucide:shapes",
+    description: "Don't worry about the technical stuff. I got you covered.",
+  },
+  {
+    url: "/work-6.svg",
+    title: "Title 6",
+    id: 6,
     icon: "lucide:shapes",
     description:
       "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",

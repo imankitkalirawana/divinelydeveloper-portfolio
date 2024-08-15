@@ -20,10 +20,9 @@ const Commitment = () => {
           playsInline
         />
         <h3 className="font-ppneuemachinaregular text-[28px] md:text-[34px] px-8 md:px-24 mt-12">
-          Commitment to the highest quality production standards, a broad
-          expertise, and a genuine strive to help our clients have secured us
-          strategic cooperation with market-leading companies in many sectors
-          and regions.
+          Driven by a passion for quality and a dedication to growth, I focus on
+          delivering reliable and tailored web solutions, building strong
+          partnerships with clients across various sectors.
         </h3>
       </section>
     </>

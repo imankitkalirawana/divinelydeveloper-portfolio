@@ -1,7 +1,7 @@
+"use client";
 import React from "react";
 import Marquee from "../magicui/marquee";
 import WorkButton from "../animata/button/work-button";
-import { Divider } from "@nextui-org/react";
 
 const Contact = () => {
   return (
@@ -21,7 +21,12 @@ const Contact = () => {
           <br />
           Let&apos;s work together!
         </p>
-        <WorkButton className="w-full mt-4 md:w-fit" />
+        <WorkButton
+          className="w-full mt-4 md:w-fit"
+          onClick={() => {
+            window.location.href = "/contact";
+          }}
+        />
       </div>
       <hr className="border-default my-4 border-1 max-w-7xl mx-auto px-8" />
     </>

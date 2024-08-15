@@ -30,7 +30,7 @@ const HowIWork = () => {
     <>
       <section
         ref={targetRef}
-        className="relative md:h-[300vh] mt-56 md:mt-0 px-4 md:px-12"
+        className="relative md:h-[300vh] mt-56 md:mt-24 px-4 md:px-12"
       >
         <div className="md:sticky top-0 flex flex-col md:flex-row md:h-screen items-start justify-end pb-8 md:overflow-hidden">
           <div className="md:text-[90px] text-[50px] leading-[50px] mb-24 md:mb-0 md:absolute top-[50%] md:translate-y-[-50%] left-0 md:leading-[90px] text-center md:text-start">
@@ -53,8 +53,8 @@ const HowIWork = () => {
               />
             </div>
             <p className="md:text-base text-2xl md:max-w-96 mt-8 text-start font-ppneuemachinaregular">
-              Some of the proses that usually we use when we have a project with
-              our client
+              I prioritize clear communication and transparent processes to
+              deliver web solutions that exceed expectations.
             </p>
           </div>
 
@@ -114,32 +114,32 @@ const cards: CardType[] = [
   {
     title: (
       <div>
-        Discussion <br />
-        <span className="text-primary font-ppneuemigraitalicbold">With Me</span>
+        Strategy <br />
+        <span className="text-primary font-ppneuemigraitalicbold">Session</span>
       </div>
     ),
     id: 1,
     description:
-      "Understand the client's business, goals, and challenges for building relationships.",
+      "Understanding the client's business, goals, and challenges is key to building strong relationships.",
   },
   {
     title: (
       <div>
-        Ideation
+        Strategic
         <br />
         <span className="text-primary font-ppneuemigraitalicbold">
-          & Brainstorm
+          Brainstorming
         </span>
       </div>
     ),
     id: 2,
     description:
-      "Gather ideas and create the first concept for the future product. Its crucial but still having fun!",
+      "Assemble ideas and design the initial product concept, making the process both critical and engaging.",
   },
   {
     title: (
       <div>
-        Creating
+        Establishing
         <br />
         <span className="text-primary font-ppneuemigraitalicbold">
           a Timeline
@@ -148,7 +148,7 @@ const cards: CardType[] = [
     ),
     id: 3,
     description:
-      "After we understand the brief and everything, we decided to give you an estimated timeline for the project",
+      "After evaluating the brief and details, we'll share an estimated timeline for the project's completion.",
   },
   {
     title: (
@@ -162,7 +162,7 @@ const cards: CardType[] = [
     ),
     id: 4,
     description:
-      "We start to visualize the design from our idea and brainstorming, based on our timeline",
+      "We begin visualizing the design based on our ideas and brainstorming, following the established timeline.",
   },
   {
     title: (
@@ -174,19 +174,21 @@ const cards: CardType[] = [
     ),
     id: 5,
     description:
-      "You can give me a feedback or insight while we working on it, collaboration is a key!",
+      "Your feedback and insights during the process are welcome, as collaboration is crucial to our success.",
   },
   {
     title: (
       <div>
-        Job
+        Task
         <br />
-        <span className="text-primary font-ppneuemigraitalicbold">Finish!</span>
+        <span className="text-primary font-ppneuemigraitalicbold">
+          Accomplished!
+        </span>
       </div>
     ),
     id: 6,
     description:
-      "Finish it everything and deliver the best thing for you and your company!",
+      "We'll ensure everything is finished and deliver exceptional results tailored to you and your company!",
   },
 ];
 

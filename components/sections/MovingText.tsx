@@ -29,13 +29,25 @@ const MovingText = () => {
           className="[--duration:10s] text-[100px] flex items-center leading-[100px] text-default uppercase font-ppneuemigraitalicbold"
           repeat={5}
         >
-          <div className="hover:text-primary">Animation</div>
+          <div className="hover:text-primary">NEXTJS</div>
           <Icon
             fontSize={70}
             icon="emojione-monotone:eight-spoked-asterisk"
             className="text-secondary mb-4"
           />
-          <div className="hover:text-primary">UX/UI</div>
+          <div className="hover:text-primary">Tailwind</div>
+          <Icon
+            fontSize={70}
+            icon="emojione-monotone:eight-spoked-asterisk"
+            className="text-secondary mb-4"
+          />
+          <div className="hover:text-primary">Mongo</div>
+          <Icon
+            fontSize={70}
+            icon="emojione-monotone:eight-spoked-asterisk"
+            className="text-secondary mb-4"
+          />
+          <div className="hover:text-primary">PHP</div>
           <Icon
             fontSize={70}
             icon="emojione-monotone:eight-spoked-asterisk"
@@ -48,13 +60,25 @@ const MovingText = () => {
           className="[--duration:10s] text-[100px] flex items-center leading-[100px] text-default uppercase font-ppneuemigraitalicbold"
           repeat={5}
         >
-          <div className="hover:text-primary">NEXTJS</div>
+          <div className="hover:text-primary">Shadcn</div>
           <Icon
             fontSize={70}
             icon="emojione-monotone:eight-spoked-asterisk"
             className="text-secondary mb-4"
           />
-          <div className="hover:text-primary">Framer</div>
+          <div className="hover:text-primary">NEXTUI</div>
+          <Icon
+            fontSize={70}
+            icon="emojione-monotone:eight-spoked-asterisk"
+            className="text-secondary mb-4"
+          />
+          <div className="hover:text-primary">Formik</div>
+          <Icon
+            fontSize={70}
+            icon="emojione-monotone:eight-spoked-asterisk"
+            className="text-secondary mb-4"
+          />
+          <div className="hover:text-primary">Framer Motion</div>
           <Icon
             fontSize={70}
             icon="emojione-monotone:eight-spoked-asterisk"

@@ -9,7 +9,7 @@ import Navbar from "@/components/sections/Navbar";
 import { Projects } from "@/components/sections/Projects";
 import Showreel from "@/components/sections/Showreel";
 import Testimonial from "@/components/sections/Testimonial";
-import Work from "@/components/sections/Work";
+import WhatIDo from "@/components/sections/WhatIDo";
 import SmoothScroll from "@/components/smooth-scroll";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
             <hr className="border-default my-4 border-1" />
             <Showreel />
           </div>
-          <Work />
+          <WhatIDo />
           <Projects />
           <Commitment />
           <MovingText />
