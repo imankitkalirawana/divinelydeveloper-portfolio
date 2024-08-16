@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import WorkButton from "../animata/button/work-button";
-import { MeteoconsStar, PhStarFourFill } from "../components/icons";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
 
@@ -11,18 +10,34 @@ const Showreel = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="flex flex-col md:flex-row mb-12 justify-between items-center">
-          <p className="text-[20px] md:text-[22px] md:max-w-[50%] font-ppneuemachinaregular">
-            We are Design Agency Specialized in Illustrations, UI/UX Design and
-            Motion Graphic Based in Indonesia
-          </p>
-          <WorkButton
-            className="w-full mt-4 md:w-fit"
-            onClick={() => {
-              window.location.href = "/contact";
-            }}
-          />
-        </div>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, y: 100 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{
+            duration: 0.5,
+            delay: 0.2,
+            stiffness: 100,
+            type: "spring",
+          }}
+        >
+          <hr className="border-default my-4 border-1" />
+          <div className="flex flex-col md:flex-row mb-12 justify-between items-center">
+            <p className="text-[20px] md:text-[22px] md:max-w-[50%] font-ppneuemachinaregular">
+              We are Design Agency Specialized in Illustrations, UI/UX Design
+              and Motion Graphic Based in Indonesia
+            </p>
+            <WorkButton
+              className="w-full mt-4 md:w-fit"
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+            />
+          </div>
+        </motion.div>
         <motion.div
           className="bg-white text-black rounded-3xl flex flex-col p-6 md:p-8"
           ref={ref}

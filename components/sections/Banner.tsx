@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { MeteoconsStar } from "../components/icons";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
 
@@ -118,11 +116,19 @@ const Banner = () => {
           </motion.div>
         </div>
         <div className="relative flex items-center">
-          <img
+          <motion.img
             src="/sparkle.svg"
             width={70}
             className="absolute left-[-30%] translate-x-[-50%] top-[-150%]"
             alt=""
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, scale: 2, rotate: 0 },
+              visible: { opacity: 1, scale: 1, rotate: -30 },
+            }}
+            transition={{ duration: 1, type: "spring", stiffness: 100 }}
+            viewport={{ once: isOnce }}
           />
           <motion.div
             initial="hidden"
@@ -142,13 +148,42 @@ const Banner = () => {
           >
             DEPLOY
           </motion.div>
-          <Icon icon="noto:rocket" />
-          <Image
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { y: 100, x: -100, opacity: 0 },
+              visible: { y: 0, x: 0, opacity: 1 },
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+              delay: 0.4,
+            }}
+            viewport={{ once: isOnce }}
+          >
+            <Icon icon="noto:rocket" />
+          </motion.div>
+          <motion.img
             src="/holographic-wire.svg"
             alt="holographic-wire"
             width={200}
             height={200}
             className="absolute left-[-50%] top-0 select-none"
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              hidden: { opacity: 0, scale: 0.5 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+              delay: 0.5,
+            }}
+            viewport={{ once: isOnce }}
           />
         </div>
       </div>

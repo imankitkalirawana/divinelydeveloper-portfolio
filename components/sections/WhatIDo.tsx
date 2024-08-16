@@ -1,4 +1,5 @@
 "use client";
+import { isOnce } from "@/lib/utils";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -62,18 +63,72 @@ const HorizontalScrollCarousel = () => {
 };
 
 const Card = ({ card }: { card: CardType }) => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1 },
+  };
   return (
     <div
       key={card.id}
       className="group rounded-[30px] p-4 md:p-8 bg-[#2a272ea9] backdrop-blur-sm relative w-[300px] h-[300px] md:h-[400px] md:w-[450px] overflow-hidden"
     >
       <img src={card.url} className="size-24 md:size-36" />
-      <h3 className="text-[24px] leading-[24px] md:leading-[28px] md:text-[28px] mt-4">
-        {card.title}
-      </h3>
-      <p className="font-ppneuemachinaregular mt-4 text-[14px] md:text-base">
-        {card.description}
-      </p>
+      <motion.h3
+        className="text-[24px] leading-[24px] md:leading-[28px] md:text-[28px] mt-4"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        transition={{ delay: 1 }}
+        viewport={{ once: isOnce }}
+      >
+        {card.title.split(" ").map((word, i) => (
+          <motion.span
+            key={i}
+            variants={item}
+            style={{ display: "inline-block", paddingRight: "15px" }}
+            viewport={{ once: isOnce }}
+          >
+            {word === "" ? <span>&nbsp;</span> : word}
+          </motion.span>
+        ))}
+      </motion.h3>
+      <motion.p
+        className="font-ppneuemachinaregular mt-4 text-[14px] md:text-base"
+        variants={{
+          hidden: { opacity: 0 },
+          show: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.03,
+            },
+          },
+        }}
+        initial="hidden"
+        whileInView="show"
+        transition={{ duration: 0.5 }}
+        viewport={{ once: isOnce }}
+      >
+        {card.description.split(" ").map((word, i) => (
+          <motion.span
+            key={i}
+            variants={item}
+            style={{ display: "inline-block", paddingRight: "15px" }}
+            viewport={{ once: isOnce }}
+          >
+            {word === "" ? <span>&nbsp;</span> : word}
+          </motion.span>
+        ))}
+      </motion.p>
     </div>
   );
 };

@@ -22,7 +22,6 @@ export default function Home() {
 
           <div className="max-w-7xl mx-auto p-8">
             <Banner />
-            <hr className="border-default my-4 border-1" />
             <Showreel />
           </div>
           <WhatIDo />
