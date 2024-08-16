@@ -38,7 +38,7 @@ const Banner = () => {
               hidden: { opacity: 0, scale: 2, rotate: 0 },
               visible: { opacity: 1, scale: 1, rotate: -30 },
             }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, type: "spring", stiffness: 100 }}
             viewport={{ once: isOnce }}
           />
           <motion.div
@@ -49,7 +49,7 @@ const Banner = () => {
               hidden: { opacity: 0, y: 50, scale: 0.5 },
               visible: { opacity: 1, y: 0, scale: 1 },
             }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, type: "spring", stiffness: 100 }}
             viewport={{ once: isOnce }}
           >
             DESIGN
@@ -107,7 +107,12 @@ const Banner = () => {
               visible: { opacity: 1, y: 0, scale: 1 },
             }}
             viewport={{ once: isOnce }}
-            transition={{ duration: 1, delay: 0.1 }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+              delay: 0.1,
+            }}
           >
             DEVELOP
           </motion.div>
@@ -126,7 +131,12 @@ const Banner = () => {
               hidden: { opacity: 0, y: 50, scale: 0.5 },
               visible: { opacity: 1, y: 0, scale: 1 },
             }}
-            transition={{ duration: 1, delay: 0.4 }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+              delay: 0.4,
+            }}
             className="flex"
             viewport={{ once: isOnce }}
           >
