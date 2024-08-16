@@ -14,7 +14,23 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex scroll-smooth font-ppneuemachinaregular max-w-7xl mx-auto px-4 justify-between text-[22px]">
+      <motion.div
+        className="flex scroll-smooth font-ppneuemachinaregular max-w-7xl mx-auto px-4 justify-between text-[22px]"
+        initial={{
+          y: -100,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 0.5,
+          delay: 0.5,
+          type: "spring",
+          stiffness: 100,
+        }}
+      >
         <motion.div
           className={`relative flex flex-col p-4 bg-default md:bg-transparent rounded-3xl md:flex-row justify-between items-center w-full`}
           // change background when isOpen
@@ -136,7 +152,7 @@ const Navbar = () => {
             )}
           </AnimatePresence>
         </motion.div>
-      </div>
+      </motion.div>
     </>
   );
 };

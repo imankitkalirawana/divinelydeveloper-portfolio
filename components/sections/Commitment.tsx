@@ -1,13 +1,7 @@
 "use client";
 import React from "react";
-import Marquee from "../magicui/marquee";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { motion } from "framer-motion";
-import { useInView } from "react-hook-inview";
 
 const Commitment = () => {
-  const [marqueeRef, inView] = useInView();
-
   return (
     <>
       <section className="relative mt-36">
