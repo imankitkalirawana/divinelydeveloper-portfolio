@@ -19,7 +19,7 @@ const Testimonial = () => {
     <>
       <Grid
         size={100}
-        className="mt-36 pt-20 px-4 overflow-y-hidden md:overflow-visible md:px-12"
+        className="mt-36 pt-20 pb-24 px-4 overflow-hidden md:px-12"
       >
         <div className="text-[50px] leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[90px] text-center">
           <div>What My</div>
