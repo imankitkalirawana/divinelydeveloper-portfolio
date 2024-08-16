@@ -82,7 +82,22 @@ const Card = ({ card }: { card: CardType }) => {
       key={card.id}
       className="group rounded-[30px] p-4 md:p-8 bg-[#2a272ea9] backdrop-blur-sm relative w-[300px] h-[300px] md:h-[400px] md:w-[450px] overflow-hidden"
     >
-      <img src={card.url} className="size-24 md:size-36" />
+      <motion.img
+        src={card.url}
+        className="size-24 md:size-36"
+        initial="hidden"
+        whileInView="visible"
+        variants={{
+          hidden: { opacity: 0, scale: 0 },
+          visible: { opacity: 1, scale: 1 },
+        }}
+        transition={{
+          duration: 0.5,
+          stiffness: 100,
+          type: "spring",
+        }}
+        viewport={{ once: isOnce }}
+      />
       <motion.h3
         className="text-[24px] leading-[24px] md:leading-[28px] md:text-[28px] mt-4"
         variants={container}
