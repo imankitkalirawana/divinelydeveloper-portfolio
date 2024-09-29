@@ -95,7 +95,7 @@ const ProjectCard = ({
             className="absolute top-0 w-full object-cover"
             width={400}
             height={400}
-            src={hasError ? "/project-5.jpg" : `/${project.thumbnail.src}`}
+            src={hasError ? "/project.jpg" : `${project.thumbnail.src}`}
             onError={() => !hasError && setHasError(true)}
           />
         ) : (
@@ -109,7 +109,7 @@ const ProjectCard = ({
             height={400}
             controls={false}
             preload="auto"
-            src={hasError ? "/project-5.mp4" : `/${project.thumbnail.src}`}
+            src={hasError ? "/showreel.mp4" : `${project.thumbnail.src}`}
             onError={() => !hasError && setHasError(true)}
           />
         )}

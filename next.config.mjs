@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   eslint: {},
-  images: {},
+  images: {
+    domains: ['images.unsplash.com', 'ijjkgecqawggwzpxdseh.supabase.co'],
+  },
 };
 
 export default nextConfig;
