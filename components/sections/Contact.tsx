@@ -2,8 +2,10 @@
 import React from "react";
 import Marquee from "../magicui/marquee";
 import WorkButton from "../animata/button/work-button";
+import { useRouter } from "next/navigation";
 
 const Contact = () => {
+  const router = useRouter();
   return (
     <>
       <Marquee pauseOnHover={false} className="[--duration:20s] mt-48">
@@ -24,7 +26,7 @@ const Contact = () => {
         <WorkButton
           className="w-full mt-4 md:w-fit"
           onClick={() => {
-            window.location.href = "/contact";
+            router.push("/contact");
           }}
         />
       </div>

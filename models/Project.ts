@@ -26,6 +26,10 @@ const projectSchema = new mongoose.Schema<ProjectInterface>(
       unique: true,
       required: [true, "Slug is required"],
     },
+    priority: {
+      type: Number,
+      default: 1,
+    },
     client: String,
   },
   {

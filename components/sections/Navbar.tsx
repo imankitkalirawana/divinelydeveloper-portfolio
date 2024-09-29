@@ -113,24 +113,14 @@ const Navbar = ({ session }: Props) => {
             </li>
             {session ? (
               <li>
-                <Link
-                  href={""}
+                <span
                   onClick={() => signOut()}
                   className="hover:underline hover:text-secondary"
                 >
                   Logout
-                </Link>
+                </span>
               </li>
-            ) : (
-              <li>
-                <Link
-                  href={"/auth/login"}
-                  className="hover:underline hover:text-secondary"
-                >
-                  Login
-                </Link>
-              </li>
-            )}
+            ) : null}
           </ul>
           <AnimatePresence>
             {isOpen && (

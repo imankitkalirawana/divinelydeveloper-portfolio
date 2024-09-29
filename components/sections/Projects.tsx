@@ -3,15 +3,17 @@ import React from "react";
 import Marquee from "@/components/magicui/marquee";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Project as ProjectType } from "@/lib/interface";
+import Image from "next/image";
+import { isImage } from "@/functions/utility";
 
-interface ProjectType {
-  id: string;
-  title: string;
-  thumbnail: string;
-  description: string;
+interface Props {
+  projects: ProjectType[];
 }
 
-export function Projects() {
+export function Projects({ projects }: Props) {
+  // sort project by priority
+  projects.sort((a, b) => a.priority - b.priority);
   const targetRef = useRef<HTMLDivElement | null>(null);
 
   const { scrollYProgress } = useScroll({
@@ -23,11 +25,10 @@ export function Projects() {
     setIsMobile(window.innerWidth < 768);
   }, []);
 
-  // const y = useTransform(scrollYProgress, [-0.3, 1.2], ["50%", "-100%"]);
   const y = useTransform(
     scrollYProgress,
     [-0.3, 1.2],
-    [isMobile ? "100%" : "50%", "-100%"],
+    [isMobile ? "60%" : "50%", "-90%"],
   );
   const backdrop = useTransform(
     scrollYProgress,
@@ -60,11 +61,11 @@ export function Projects() {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
 
           <motion.div
-            className="flex flex-col gap-24 p-4 md:p-12"
+            className="flex flex-col gap-24 w-full p-4 md:p-12"
             style={{ y }}
           >
             {projects.slice(0, 5).map((project, index) => (
-              <ProjectCard project={project} index={index} key={project.id} />
+              <ProjectCard project={project} index={index} key={index} />
             ))}
           </motion.div>
         </div>
@@ -80,61 +81,39 @@ const ProjectCard = ({
   project: ProjectType;
   index: number;
 }) => {
+  const [hasError, setHasError] = useState(false);
   return (
     <div
       className={`flex flex-col items-${
         (index + 1) % 2 === 0 ? "end" : "start"
       } w-full`}
     >
-      {project.thumbnail.includes(".mp4") ? (
-        <video
-          src={project.thumbnail}
-          autoPlay
-          loop
-          muted
-          className="object-cover md:w-[50%] rounded-3xl pointer-events-none"
-          playsInline
-        />
-      ) : (
-        <img
-          src={project.thumbnail}
-          alt={project.title}
-          className="object-cover md:w-[50%] rounded-3xl"
-        />
-      )}
+      <div className="relative aspect-[16/10] overflow-hidden rounded-3xl flex w-full md:w-[50%]">
+        {isImage(project.thumbnail.src) ? (
+          <Image
+            alt={project.title}
+            className="absolute top-0 w-full object-cover"
+            width={400}
+            height={400}
+            src={hasError ? "/project-5.jpg" : `/${project.thumbnail.src}`}
+            onError={() => !hasError && setHasError(true)}
+          />
+        ) : (
+          <video
+            autoPlay
+            loop
+            muted
+            className="object-cover w-full pointer-events-none"
+            playsInline
+            width={400}
+            height={400}
+            controls={false}
+            preload="auto"
+            src={hasError ? "/project-5.mp4" : `/${project.thumbnail.src}`}
+            onError={() => !hasError && setHasError(true)}
+          />
+        )}
+      </div>
     </div>
   );
 };
-
-const projects = [
-  {
-    id: "1",
-    title: "Project 1",
-    thumbnail: "/project-1.mp4",
-    description: "This is a project description",
-  },
-  {
-    id: "2",
-    title: "Project 2",
-    thumbnail: "/project-2.mp4",
-    description: "This is a project description",
-  },
-  {
-    id: "3",
-    title: "Project 3",
-    thumbnail: "/project-3.mp4",
-    description: "This is a project description",
-  },
-  {
-    id: "4",
-    title: "Project 4",
-    thumbnail: "/project-4.mp4",
-    description: "This is a project description",
-  },
-  {
-    id: "5",
-    title: "Project 5",
-    thumbnail: "/project-5.jpg",
-    description: "This is a project description",
-  },
-];

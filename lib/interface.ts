@@ -31,4 +31,14 @@ export interface Project extends Base {
   status: "upcoming" | "in-progress" | "hold" | "completed";
   slug: string;
   client: string;
+  priority: number;
+}
+
+export interface Testimonial extends Base {
+  _id: string;
+  name: string;
+  title: string;
+  src: string;
+  comment: string;
+  projects?: string[];
 }

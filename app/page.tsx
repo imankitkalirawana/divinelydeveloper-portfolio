@@ -12,8 +12,12 @@ import Showreel from "@/components/sections/Showreel";
 import Testimonial from "@/components/sections/Testimonial";
 import WhatIDo from "@/components/sections/WhatIDo";
 import SmoothScroll from "@/components/smooth-scroll";
+import { Project, Testimonial as TestimonialInterface } from "@/lib/interface";
+import { getProjects, getTestimonials } from "@/functions/get";
 
-export default function Home() {
+export default async function Home() {
+  const projects: Project[] = await getProjects();
+  const testimonials: TestimonialInterface[] = await getTestimonials();
   return (
     <>
       <SmoothScroll>
@@ -25,11 +29,11 @@ export default function Home() {
             <Showreel />
           </div>
           <WhatIDo />
-          <Projects />
+          <Projects projects={projects} />
           <Commitment />
           <MovingText />
           <HowIWork />
-          <Testimonial />
+          <Testimonial testimonials={testimonials} />
           <Contact />
           <div className="max-w-7xl mx-auto px-8">
             <Footer />

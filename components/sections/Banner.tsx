@@ -170,7 +170,7 @@ const Banner = () => {
             alt="holographic-wire"
             width={200}
             height={200}
-            className="absolute left-[-50%] top-0 select-none"
+            className="absolute left-[-50%] mix-blend-lighten top-0 select-none"
             initial="hidden"
             whileInView="visible"
             variants={{

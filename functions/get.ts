@@ -13,3 +13,17 @@ export async function getProjects() {
     console.error(error);
   }
 }
+
+export async function getTestimonials() {
+  try {
+    const res = await fetch(`${API_BASE_URL}/testimonials`, {
+      cache: isCaching ? "default" : "no-cache",
+    });
+    if (res.ok) {
+      const json = await res.json();
+      return json;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}

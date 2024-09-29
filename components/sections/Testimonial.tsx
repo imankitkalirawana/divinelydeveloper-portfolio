@@ -4,8 +4,14 @@ import Grid from "../animata/background/grid";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
+import { Testimonial as TestimonialInterface } from "@/lib/interface";
+import { Avatar } from "@nextui-org/react";
 
-const Testimonial = () => {
+interface Props {
+  testimonials: TestimonialInterface[];
+}
+
+const Testimonial = ({ testimonials }: Props) => {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
 
@@ -45,7 +51,7 @@ const Testimonial = () => {
               }
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card card={cards[0]} />
+              <Card card={testimonials[0]} />
               <Tape className="top-[0%] translate-y-[-45%] right-0 translate-x-[20%] rotate-[25deg]" />
               <Tape className="bottom-[0%] translate-y-[50%] left-0 translate-x-[-35%] rotate-[25deg]" />
             </motion.div>
@@ -59,7 +65,7 @@ const Testimonial = () => {
               }
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Card card={cards[1]} />
+              <Card card={testimonials[1]} />
               <Tape className="top-[0%] translate-y-[-50%] left-[50%] translate-x-[-50%] rotate-[13deg]" />
               <Tape className="bottom-[0%] translate-y-[45%] left-0 translate-x-[-15%] rotate-[13deg]" />
             </motion.div>
@@ -78,7 +84,7 @@ const Testimonial = () => {
               }
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <Card card={cards[2]} />
+              <Card card={testimonials[2]} />
               <Tape className="top-[0%] translate-y-[-45%] right-0 translate-x-[20%] rotate-[30deg]" />
               <Tape className="bottom-[0%] translate-y-[50%] left-0 translate-x-[-35%] rotate-[30deg]" />
             </motion.div>
@@ -92,7 +98,7 @@ const Testimonial = () => {
               }
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Card card={cards[3]} />
+              <Card card={testimonials[3]} />
               <Tape className="top-[0%] translate-y-[-50%] left-[50%] translate-x-[-50%] rotate-[0deg]" />
               <Tape className="bottom-[0%] translate-y-[55%] left-0 translate-x-[-15%] rotate-[0deg]" />
             </motion.div>
@@ -114,10 +120,16 @@ const Tape = ({ className }: { className?: string }) => {
   );
 };
 
-const Card = ({ card, className }: { card: CardType; className?: string }) => {
+const Card = ({
+  card,
+  className,
+}: {
+  card: TestimonialInterface;
+  className?: string;
+}) => {
   return (
     <div
-      key={card.id}
+      key={card._id}
       className={cn(
         "flex gap-4 rounded-3xl md:w-[400px] p-8 aspect-square items-start bg-default",
         className,
@@ -126,9 +138,12 @@ const Card = ({ card, className }: { card: CardType; className?: string }) => {
       <div className="flex flex-col">
         <div className="text-[28px]">{card.title}</div>
         <div className="text-[15px] mt-4 font-ppneuemachinaregular">
-          {card.description}
+          {card.comment}
         </div>
-        <div className="mt-8 text-[20px]">{card.name}</div>
+        <div className="mt-8 flex gap-2 items-center text-[20px]">
+          <Avatar src={card.src} />
+          <span>{card.name}</span>
+        </div>
       </div>
     </div>
   );
