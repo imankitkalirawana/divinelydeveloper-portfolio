@@ -3,9 +3,11 @@ import React from "react";
 import WorkButton from "../animata/button/work-button";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
+import { useRouter } from "next/navigation";
 
 const Showreel = () => {
   const [ref, inView] = useInView();
+  const router = useRouter();
 
   return (
     <>
@@ -33,7 +35,7 @@ const Showreel = () => {
             <WorkButton
               className="w-full mt-4 md:w-fit"
               onClick={() => {
-                window.location.href = "/contact";
+                router.push("/contact");
               }}
             />
           </div>

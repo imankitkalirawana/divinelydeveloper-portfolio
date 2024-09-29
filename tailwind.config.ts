@@ -1,26 +1,23 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 import { nextui } from "@nextui-org/react";
-
-
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
-
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
     extend: {
       fontFamily: {
-        ppneuemachinaregular: ['PPNeueMachinaRegular', 'sans-serif'],
-        ppneuemachinabold: ['PPNeueMachinaBold', 'sans-serif'],
-        ppneuemigraitalicbold: ['PPMigraItalicExtraboldItalic', 'sans-serif'],
-        clashdisplaymedium: ['ClashDisplayMedium', 'sans-serif'],
+        ppneuemachinaregular: ["PPNeueMachinaRegular", "sans-serif"],
+        ppneuemachinabold: ["PPNeueMachinaBold", "sans-serif"],
+        ppneuemigraitalicbold: ["PPMigraItalicExtraboldItalic", "sans-serif"],
+        clashdisplaymedium: ["ClashDisplayMedium", "sans-serif"],
       },
     },
     animation: {
@@ -52,67 +49,66 @@ const config = {
         "0%": { backgroundPosition: "0% 50%" },
         "100%": { backgroundPosition: "100% 50%" },
       },
-    }
-
+    },
   },
 
-
-  plugins: [require("tailwindcss-animate"), nextui({
-    themes: {
-      dark: {
-        colors: {
-          default: {
-            50: "#0c0b0e",
-            100: "#131215",
-            200: "#19181d",
-            300: "#201f25",
-            400: "#27252d",
-            500: "#4d4b52",
-            600: "#737177",
-            700: "#98979b",
-            800: "#bebec0",
-            900: "#e4e4e5",
-            foreground: "#fff",
-            DEFAULT: "#27252d"
+  plugins: [
+    require("tailwindcss-animate"),
+    nextui({
+      themes: {
+        dark: {
+          colors: {
+            default: {
+              50: "#0c0b0e",
+              100: "#131215",
+              200: "#19181d",
+              300: "#201f25",
+              400: "#27252d",
+              500: "#4d4b52",
+              600: "#737177",
+              700: "#98979b",
+              800: "#bebec0",
+              900: "#e4e4e5",
+              foreground: "#fff",
+              DEFAULT: "#27252d",
+            },
+            primary: {
+              50: "#472140",
+              100: "#703565",
+              200: "#99488a",
+              300: "#c35cb0",
+              400: "#ec6fd5",
+              500: "#ef88dc",
+              600: "#f3a1e4",
+              700: "#f6bbeb",
+              800: "#f9d4f2",
+              900: "#fdedfa",
+              foreground: "#000",
+              DEFAULT: "#ec6fd5",
+            },
+            secondary: {
+              50: "#0f3840",
+              100: "#185966",
+              200: "#217a8b",
+              300: "#299bb1",
+              400: "#32bcd6",
+              500: "#56c8dd",
+              600: "#7ad3e4",
+              700: "#9edfec",
+              800: "#c2ebf3",
+              900: "#e5f7fa",
+              foreground: "#000",
+              DEFAULT: "#32bcd6",
+            },
+            background: "#19181e",
+            focus: "#ec6fd5",
+            overlay: "#ffffff",
+            divider: "#2d2d2e",
           },
-          primary: {
-            50: "#472140",
-            100: "#703565",
-            200: "#99488a",
-            300: "#c35cb0",
-            400: "#ec6fd5",
-            500: "#ef88dc",
-            600: "#f3a1e4",
-            700: "#f6bbeb",
-            800: "#f9d4f2",
-            900: "#fdedfa",
-            foreground: "#000",
-            DEFAULT: "#ec6fd5"
-          },
-          secondary: {
-            50: "#0f3840",
-            100: "#185966",
-            200: "#217a8b",
-            300: "#299bb1",
-            400: "#32bcd6",
-            500: "#56c8dd",
-            600: "#7ad3e4",
-            700: "#9edfec",
-            800: "#c2ebf3",
-            900: "#e5f7fa",
-            foreground: "#000",
-            DEFAULT: "#32bcd6"
-          },
-          background: "#19181e",
-          focus: "#ec6fd5",
-          overlay: "#ffffff",
-          divider: "#2d2d2e"
-        }
-      }
-    }
-  })],
-} satisfies Config
+        },
+      },
+    }),
+  ],
+} satisfies Config;
 
-
-
-export default config
+export default config;

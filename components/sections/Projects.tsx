@@ -1,9 +1,8 @@
 "use client";
+import React from "react";
 import Marquee from "@/components/magicui/marquee";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { useInView } from "react-hook-inview";
 
 interface ProjectType {
   id: string;

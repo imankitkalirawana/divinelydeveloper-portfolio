@@ -10,7 +10,6 @@ import React from "react";
 const Page = () => {
   return (
     <>
-      <Navbar />
       <Banner />
       <Commitment />
       <Stats />

@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { Button } from "@nextui-org/react";
-import { motion } from "framer-motion";
 
 export default function WorkButton({
   className,

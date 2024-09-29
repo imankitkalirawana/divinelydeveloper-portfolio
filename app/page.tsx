@@ -1,3 +1,4 @@
+import React from "react";
 import BackgroundGradient from "@/components/components/BackgroundGradient";
 import Banner from "@/components/sections/Banner";
 import Commitment from "@/components/sections/Commitment";
@@ -18,7 +19,6 @@ export default function Home() {
       <SmoothScroll>
         <div className="select-none">
           <BackgroundGradient />
-          <Navbar />
 
           <div className="max-w-7xl mx-auto p-8">
             <Banner />

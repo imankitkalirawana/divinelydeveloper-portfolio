@@ -4,9 +4,23 @@ import { Avatar, Button } from "@nextui-org/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
-const Navbar = () => {
+interface Props {
+  session: any;
+}
+
+const Navbar = ({ session }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const EXCLUDED_PATHS = ["/auth", "/contact", "/dashboard"];
+  const isExcluded = EXCLUDED_PATHS.some((path) => pathname.includes(path));
+
+  if (isExcluded) {
+    return null;
+  }
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -97,6 +111,26 @@ const Navbar = () => {
                 Contact
               </Link>
             </li>
+            {session ? (
+              <li>
+                <Link
+                  href={""}
+                  onClick={() => signOut()}
+                  className="hover:underline hover:text-secondary"
+                >
+                  Logout
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link
+                  href={"/auth/login"}
+                  className="hover:underline hover:text-secondary"
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
           <AnimatePresence>
             {isOpen && (
