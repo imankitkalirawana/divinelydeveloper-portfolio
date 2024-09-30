@@ -29,8 +29,8 @@ const Showreel = () => {
           <hr className="border-default my-4 border-1" />
           <div className="flex flex-col md:flex-row mb-12 justify-between items-center">
             <p className="text-[20px] md:text-[22px] md:max-w-[50%] font-ppneuemachinaregular">
-              We are Design Agency Specialized in Illustrations, UI/UX Design
-              and Motion Graphic Based in Indonesia
+              I am a web developer proficient in Next.js and modern
+              technologies, open to collaborating on innovative projects.
             </p>
             <WorkButton
               className="w-full mt-4 md:w-fit"
@@ -61,8 +61,9 @@ const Showreel = () => {
             </div>
             <div className="md:max-w-[50%] relative">
               <p className="font-ppneuemachinaregular mt-8 relative text-sm md:text-lg text-[#3b3b3b]">
-                Our team is expert in developing designs and animations that can
-                help you showcase and represent your business.
+                I specialize in building dynamic web solutions that effectively
+                showcase and represent your business, leveraging cutting-edge
+                design and development techniques.
                 <img
                   src="/sparkle-filled.svg"
                   width={70}

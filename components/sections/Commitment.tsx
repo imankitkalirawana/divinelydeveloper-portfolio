@@ -14,9 +14,9 @@ const Commitment = () => {
           playsInline
         />
         <h3 className="font-ppneuemachinaregular text-[28px] md:text-[34px] px-8 md:px-24 mt-12">
-          Driven by a passion for quality and a dedication to growth, I focus on
-          delivering reliable and tailored web solutions, building strong
-          partnerships with clients across various sectors.
+          Driven by a passion for excellence and a commitment to innovation, I
+          deliver customized web solutions while fostering strong partnerships
+          with clients across diverse industries.
         </h3>
       </section>
     </>

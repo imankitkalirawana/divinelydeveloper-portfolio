@@ -176,14 +176,18 @@ const Main = () => {
               <ModalBody className="bg-default rounded-2xl mb-4 p-4">
                 <h3 className="uppercase text-sm">What&apos;s next?</h3>
                 <p className="text-sm text-foreground-500">
-                  Our team will get back to you within 24 hours. In the
-                  meantime, you can check our{" "}
-                  <a href="#" className="text-primary">
-                    FAQ
+                  I will get back to you within 24 hours. In the meantime, you
+                  can check my{" "}
+                  <a
+                    href="https://github.com/imankitkalirawana"
+                    target="_blank"
+                    className="text-primary"
+                  >
+                    GitHub
                   </a>{" "}
                   or{" "}
-                  <a href="#" className="text-primary">
-                    Documentation
+                  <a href="/#projects" className="text-primary">
+                    Portfolio
                   </a>{" "}
                   to get more information.
                 </p>
