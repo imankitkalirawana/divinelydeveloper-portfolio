@@ -41,7 +41,7 @@ const Showreel = () => {
           </div>
         </motion.div>
         <motion.div
-          className="bg-white text-black rounded-3xl flex flex-col p-6 md:p-8"
+          className="bg-white text-black rounded-3xl flex flex-col p-4 md:p-8"
           ref={ref}
           initial={{ opacity: 0, y: 100 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
@@ -76,7 +76,7 @@ const Showreel = () => {
             </div>
           </div>
           <video
-            className="w-full rounded-3xl mt-8 pointer-events-none"
+            className="w-full rounded-[20px] mt-8 pointer-events-none"
             src="/showreel.mp4"
             controls={false}
             autoPlay={true}
