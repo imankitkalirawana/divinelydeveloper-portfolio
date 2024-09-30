@@ -18,6 +18,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
+import { toast } from "sonner";
 
 const Main = () => {
   const submittedModal = useDisclosure();
@@ -48,8 +49,11 @@ const Main = () => {
         if (response.ok) {
           formik.resetForm();
           submittedModal.onOpenChange();
+        } else {
+          toast.error("An error occurred. Please try again later.");
         }
       } catch (error) {
+        toast.error("An error occurred. Please try again later.");
         console.error(error);
       }
     },

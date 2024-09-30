@@ -978,8 +978,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ message: "Message sent successfully" });
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    return NextResponse.error();
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
