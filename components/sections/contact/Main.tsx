@@ -8,10 +8,10 @@ import {
   Modal,
   ModalBody,
   ModalContent,
-  ModalFooter,
   ModalHeader,
   Textarea,
   useDisclosure,
+  Link as NextLink,
 } from "@nextui-org/react";
 import WorkButton from "@/components/animata/button/work-button";
 import { useFormik } from "formik";
@@ -64,6 +64,16 @@ const Main = () => {
       <section className="relative pb-8 flex flex-col md:flex-row gap-12 font-ppneuemachinaregular">
         <div className="relative md:w-[40%] hidden md:block w-full overflow-hidden rounded-3xl">
           <Image src={"/imankitkalirawana.jpg"} alt="" className="shadow-lg" />
+          <Button
+            as={Link}
+            href="/"
+            // color="foreground"
+            variant="light"
+            className="w-fit absolute z-10 top-3"
+            startContent={<Icon icon="akar-icons:arrow-left" />}
+          >
+            Back
+          </Button>
           <div className="absolute z-10 bg-gradient-to-t from-black to-transparent w-full h-1/2 bottom-0 left-0 flex">
             <div className="flex flex-col gap-2 justify-end items-start w-full p-8">
               <Avatar src="/logo.png" className="p-1 bg-white" />
@@ -76,6 +86,16 @@ const Main = () => {
           </div>
         </div>
         <div className="flex justify-center md:w-[60%] flex-col gap-8">
+          <Button
+            as={Link}
+            href="/"
+            // color="foreground"
+            variant="light"
+            className="w-fit gap-2 md:hidden translate-x-[-10px]"
+            startContent={<Icon icon="akar-icons:arrow-left" />}
+          >
+            Back
+          </Button>
           <Input
             placeholder="John Doe"
             size="lg"
