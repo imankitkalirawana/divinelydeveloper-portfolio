@@ -18,7 +18,7 @@ const projectSchema = new mongoose.Schema<ProjectInterface>(
     enddate: String,
     status: {
       type: String,
-      enum: ["upcoming", "in-progress", "hold", "completed"],
+      enum: ["upcoming", "in-progress", "on-hold", "completed"],
       default: "upcoming",
     },
     slug: {

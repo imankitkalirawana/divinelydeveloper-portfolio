@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Project as ProjectType } from "@/lib/interface";
 import Image from "next/image";
 import { isImage } from "@/functions/utility";
+import Link from "next/link";
 
 interface Props {
   projects: ProjectType[];
@@ -87,6 +88,7 @@ const ProjectCard = ({
       className={`flex flex-col items-${
         (index + 1) % 2 === 0 ? "end" : "start"
       } w-full`}
+      // href={project.}
     >
       <div className="relative aspect-[16/10] overflow-hidden rounded-3xl flex w-full md:w-[50%]">
         {isImage(project.thumbnail.src) ? (

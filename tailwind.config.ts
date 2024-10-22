@@ -23,6 +23,7 @@ const config = {
     animation: {
       marquee: "marquee var(--duration) linear infinite",
       "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+      ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
     },
     keyframes: {
       "reveal-up": {
@@ -32,6 +33,9 @@ const config = {
       "reveal-down": {
         "0%": { opacity: "0", transform: "translateY(-80%)" },
         "100%": { opacity: "1", transform: "translateY(0)" },
+      },
+      ping: {
+        "75%, 100%": { transform: "scale(2)", opacity: "0" },
       },
       "content-blur": {
         "0%": { filter: "blur(0.3rem)" },

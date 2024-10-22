@@ -89,7 +89,7 @@ const Navbar = ({ session }: Props) => {
             </li>
             <li>
               <Link
-                href={"/#projects"}
+                href={"/projects"}
                 className="hover:underline hover:text-secondary"
               >
                 Projects
@@ -150,7 +150,7 @@ const Navbar = ({ session }: Props) => {
                 </li>
                 <li>
                   <Link
-                    href={"/#projects"}
+                    href={"/projects"}
                     className="hover:underline hover:text-secondary"
                   >
                     Projects

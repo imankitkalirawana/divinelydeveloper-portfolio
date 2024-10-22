@@ -28,7 +28,7 @@ export interface Project extends Base {
   previewlink: string;
   startdate: string;
   enddate: string;
-  status: "upcoming" | "in-progress" | "hold" | "completed";
+  status: "upcoming" | "in-progress" | "on-hold" | "completed";
   slug: string;
   client: string;
   priority: number;

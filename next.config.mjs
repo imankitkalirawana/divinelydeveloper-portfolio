@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   eslint: {},
   images: {
-    domains: ['images.unsplash.com', 'ijjkgecqawggwzpxdseh.supabase.co'],
+    domains: ['images.unsplash.com', 'ijjkgecqawggwzpxdseh.supabase.co', 'divinelydeveloper.s3.ap-south-1.amazonaws.com'],
   },
 };
 
