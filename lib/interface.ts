@@ -18,7 +18,10 @@ export interface User extends Base {
 
 export interface Project extends Base {
   title: string;
+  tagline: string;
   description: string;
+  role: string;
+  github: string;
   thumbnail: {
     src: string;
     file: File;

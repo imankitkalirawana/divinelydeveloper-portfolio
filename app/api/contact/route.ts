@@ -740,7 +740,7 @@ export async function POST(request: Request) {
                                       Thank you for reaching out! We have
                                       received your message and will get back to
                                       you shortly. In the meantime, feel free to
-                                      check out my projects on
+                                      check out my work on
                                       <a
                                         href="https://github.com/imankitkalirawana"
                                         target="_blank"

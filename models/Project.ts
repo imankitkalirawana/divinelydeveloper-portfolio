@@ -8,7 +8,10 @@ const projectSchema = new mongoose.Schema<ProjectInterface>(
       type: String,
       required: [true, "Title is required"],
     },
+    tagline: String,
     description: String,
+    role: String,
+    github: String,
     thumbnail: {
       src: String,
     },

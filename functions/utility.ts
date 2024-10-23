@@ -45,3 +45,14 @@ export const humanReadableTime = (date: string | Date) => {
 export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+export function calculateDays(startDate: string, endDate: string) {
+  const diff = new Date(endDate).getTime() - new Date(startDate).getTime();
+  return Math.ceil(diff / (1000 * 60 * 60 * 24));
+}
+
+export function compareDates(date1: string, date2: string) {
+  if (new Date(date1) > new Date(date2)) return 1;
+  if (new Date(date1) < new Date(date2)) return -1;
+  return 0;
+}

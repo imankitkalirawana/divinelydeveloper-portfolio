@@ -1,15 +1,8 @@
 "use client";
 import { isImage } from "@/functions/utility";
 import { Project } from "@/lib/interface";
-import {
-  Badge,
-  Chip,
-  ChipProps,
-  cn,
-  Image as NextImage,
-  Skeleton,
-  Tooltip,
-} from "@nextui-org/react";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { Chip, cn, Skeleton, Tooltip } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -20,14 +13,14 @@ interface Props {
 
 const statusColorMap = {
   completed: "bg-success",
-  "on-hold": "bg-danger",
+  "on-hold": "bg-warning",
   "in-progress": "bg-warning",
   upcoming: "bg-secondary",
 };
 
 const tooltipColorMap = {
   completed: "success",
-  "on-hold": "danger",
+  "on-hold": "warning",
   "in-progress": "warning",
   upcoming: "secondary",
 };
@@ -53,7 +46,7 @@ function ProjectCard({ project }: { project: Project }) {
 
   return (
     <Link
-      href={`/projects/${project.slug}`}
+      href={`/work/${project.slug}`}
       className="flex flex-col group gap-4"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
@@ -112,7 +105,7 @@ function ProjectCard({ project }: { project: Project }) {
 
         <Tooltip
           isOpen={isOpen}
-          className="capitalize font-ppneuemachinaregular"
+          className="capitalize pt-2 font-ppneuemachinaregular"
           content={project.status.split("-").join(" ")}
           placement="left"
           color={tooltipColorMap[project.status] as any}
@@ -131,8 +124,19 @@ function ProjectCard({ project }: { project: Project }) {
         </h3>
       </div>
 
-      <div className="flex font-ppneuemachinaregular flex-col gap-2">
-        <div></div>
+      <div className="flex flex-col font-ppneuemachinaregular gap-2">
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <Chip
+              key={tech}
+              // size="sm"
+              className="capitalize"
+              startContent={<Icon icon={tech} className="mx-1" />}
+            >
+              {tech.split("-").pop()}
+            </Chip>
+          ))}
+        </div>
       </div>
     </Link>
   );
