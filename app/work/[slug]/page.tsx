@@ -6,7 +6,6 @@ interface Props {
   params: {
     slug: string;
   };
-  project: ProjectProps;
 }
 
 export default async function Page({ params }: Props) {

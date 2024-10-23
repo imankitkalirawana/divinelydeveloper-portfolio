@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "typescript",
     "javascript",
   ],
-  metadataBase: new URL("https://divinelydeveloper.me"),
+  metadataBase: new URL("https://divinely.dev"),
   openGraph: {
     title: "Divinely Developer",
     description: "Full-stack development by Bhuneshvar.",
