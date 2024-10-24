@@ -7,6 +7,7 @@ import { Project, Project as ProjectType } from "@/lib/interface";
 import Image from "next/image";
 import { isImage } from "@/functions/utility";
 import { getProjects } from "@/functions/get";
+import { isCaching } from "@/lib/config";
 
 interface Props {
   projects: ProjectType[];
@@ -17,8 +18,13 @@ export default function ProjectProvider() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const projects = await getProjects();
-      setProjects(projects);
+      const res = await fetch(`/api/projects`, {
+        cache: isCaching ? "default" : "no-cache",
+      });
+      if (res.ok) {
+        const projects = await res.json();
+        setProjects(projects);
+      }
     };
     fetchProjects();
   }, []);

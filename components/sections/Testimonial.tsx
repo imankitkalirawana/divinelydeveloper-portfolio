@@ -7,6 +7,7 @@ import { useInView } from "react-hook-inview";
 import { Testimonial as TestimonialInterface } from "@/lib/interface";
 import { Avatar } from "@nextui-org/react";
 import { getTestimonials } from "@/functions/get";
+import { isCaching } from "@/lib/config";
 
 interface Props {
   testimonials: TestimonialInterface[];
@@ -17,8 +18,13 @@ export default function TestimonialProvider() {
 
   useEffect(() => {
     const fetchTestimonials = async () => {
-      const testimonials = await getTestimonials();
-      setTestimonials(testimonials);
+      const res = await fetch(`/api/testimonials`, {
+        cache: isCaching ? "default" : "no-cache",
+      });
+      if (res.ok) {
+        const testimonials = await res.json();
+        setTestimonials(testimonials);
+      }
     };
     fetchTestimonials();
   }, []);
