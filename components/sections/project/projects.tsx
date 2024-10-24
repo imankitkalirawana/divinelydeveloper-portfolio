@@ -103,21 +103,24 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         )}
 
-        <Tooltip
+        {/* <Tooltip
           isOpen={isOpen}
-          className="capitalize pt-2 font-ppneuemachinaregular"
+          className="capitalize pt-2 !z-10 font-ppneuemachinaregular"
           content={project.status.split("-").join(" ")}
           placement="left"
           color={tooltipColorMap[project.status] as any}
-        >
-          <span
-            className={cn(
-              "absolute right-5 top-5 size-2 rounded-full",
-              project.status === "in-progress" && "animate-ping",
-              statusColorMap[project.status],
-            )}
-          ></span>
-        </Tooltip>
+          classNames={{
+            content: "z-10",
+          }}
+        > */}
+        <span
+          className={cn(
+            "absolute right-5 top-5 size-2 rounded-full",
+            project.status === "in-progress" && "animate-ping",
+            statusColorMap[project.status],
+          )}
+        ></span>
+        {/* </Tooltip> */}
 
         <h3 className="absolute left-1/2 top-1/2 text-3xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap -translate-x-1/2 -translate-y-1/2 text-white">
           <span>{project.title}</span>
