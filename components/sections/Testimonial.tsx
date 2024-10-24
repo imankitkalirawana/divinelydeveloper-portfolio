@@ -6,9 +6,28 @@ import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
 import { Testimonial as TestimonialInterface } from "@/lib/interface";
 import { Avatar } from "@nextui-org/react";
+import { getTestimonials } from "@/functions/get";
 
 interface Props {
   testimonials: TestimonialInterface[];
+}
+
+export default function TestimonialProvider() {
+  const [testimonials, setTestimonials] = useState<TestimonialInterface[]>([]);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      const testimonials = await getTestimonials();
+      setTestimonials(testimonials);
+    };
+    fetchTestimonials();
+  }, []);
+
+  return (
+    <>
+      <Testimonial testimonials={testimonials} />
+    </>
+  );
 }
 
 const Testimonial = ({ testimonials }: Props) => {
@@ -129,20 +148,20 @@ const Card = ({
 }) => {
   return (
     <div
-      key={card._id}
+      key={card?._id}
       className={cn(
         "flex gap-4 rounded-3xl md:w-[400px] p-8 aspect-square items-start bg-default",
         className,
       )}
     >
       <div className="flex flex-col">
-        <div className="text-[28px]">{card.title}</div>
+        <div className="text-[28px]">{card?.title}</div>
         <div className="text-[15px] mt-4 font-ppneuemachinaregular">
-          {card.comment}
+          {card?.comment}
         </div>
         <div className="mt-8 flex gap-2 items-center text-[20px]">
-          <Avatar src={card.src} />
-          <span>{card.name}</span>
+          <Avatar src={card?.src} />
+          <span>{card?.name}</span>
         </div>
       </div>
     </div>
@@ -186,5 +205,3 @@ const cards: CardType[] = [
     name: "Halahi",
   },
 ];
-
-export default Testimonial;

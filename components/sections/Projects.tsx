@@ -3,16 +3,33 @@ import React from "react";
 import Marquee from "@/components/magicui/marquee";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Project as ProjectType } from "@/lib/interface";
+import { Project, Project as ProjectType } from "@/lib/interface";
 import Image from "next/image";
 import { isImage } from "@/functions/utility";
-import Link from "next/link";
+import { getProjects } from "@/functions/get";
 
 interface Props {
   projects: ProjectType[];
 }
 
-export function Projects({ projects }: Props) {
+export default function ProjectProvider() {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getProjects();
+      setProjects(projects);
+    };
+    fetchProjects();
+  }, []);
+  return (
+    <>
+      <Projects projects={projects} />
+    </>
+  );
+}
+
+function Projects({ projects }: Props) {
   // sort project by priority
   projects.sort((a, b) => a.priority - b.priority);
   const targetRef = useRef<HTMLDivElement | null>(null);
