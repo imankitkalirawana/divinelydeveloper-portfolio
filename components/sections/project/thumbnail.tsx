@@ -12,9 +12,8 @@ export default function Thumbnail({ src }: { src: string }) {
     <>
       <div className="relative rounded-3xl overflow-hidden w-full h-fit">
         {isImage(src) ? (
-          <Image
+          <img
             src={src}
-            objectFit="cover"
             alt="thumbnail"
             className="object-cover bg-default group-hover:opacity-30 transition-all w-full pointer-events-none"
             width={1200}

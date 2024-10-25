@@ -15,11 +15,7 @@ const HowIWork = () => {
   }, []);
 
   // const y = useTransform(scrollYProgress, [-0.37, 1.3], ["50%", "-100%"]);
-  const y = useTransform(
-    scrollYProgress,
-    [-0.4, 1.3],
-    [isMobile ? "150%" : "50%", "-100%"],
-  );
+  const y = useTransform(scrollYProgress, [-0.3, 1.2], ["60%", "-90%"]);
   // const y = useTransform(
   //   scrollYProgress,
   //   [0, 1],

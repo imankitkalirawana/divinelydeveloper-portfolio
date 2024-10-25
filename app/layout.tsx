@@ -52,7 +52,7 @@ export default async function RootLayout({
       <body className="font-ppneuemachinabold bg-background text-foreground">
         <Providers>
           <Navbar session={session} />
-          <main className="mt-12">{children}</main>
+          <main className="mt-24">{children}</main>
         </Providers>
       </body>
     </html>
