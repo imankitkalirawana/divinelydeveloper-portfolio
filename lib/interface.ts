@@ -1,9 +1,9 @@
 interface Base {
   _id: string;
-  addedBy: string;
-  modifiedBy: string;
-  createdAt: Date;
-  updatedAt: Date;
+  addedBy?: string;
+  modifiedBy?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface User extends Base {
@@ -44,4 +44,13 @@ export interface Testimonial extends Base {
   src: string;
   comment: string;
   projects?: string[];
+}
+
+export interface Social extends Base {
+  name: string;
+  icon?: string;
+  url: string;
+  color: string;
+  priority: number;
+  category: "social" | "resource" | "byme" | "other" | "featured";
 }

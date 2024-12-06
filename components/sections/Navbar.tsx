@@ -15,7 +15,7 @@ const Navbar = ({ session }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const EXCLUDED_PATHS = ["/auth", "/contact", "/dashboard"];
+  const EXCLUDED_PATHS = ["/auth", "/contact", "/dashboard", "/socials"];
   const isExcluded = EXCLUDED_PATHS.some((path) => pathname.includes(path));
 
   if (isExcluded) {
@@ -104,10 +104,10 @@ const Navbar = ({ session }: Props) => {
               </li>
               <li>
                 <Link
-                  href={"/#services"}
+                  href={"/socials"}
                   className="hover:underline hover:text-secondary"
                 >
-                  Services
+                  Socials
                 </Link>
               </li>
               <li>
