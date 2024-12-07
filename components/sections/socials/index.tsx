@@ -87,6 +87,7 @@ export default function Socials() {
                   <Card
                     className="w-full items-center justify-between flex-row p-4"
                     radius="lg"
+                    key={index}
                   >
                     <div className="flex items-center gap-2">
                       <Skeleton className="rounded-full before:!duration-1000 h-12 w-12 " />
