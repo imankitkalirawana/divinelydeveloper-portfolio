@@ -110,7 +110,8 @@ export default function Socials() {
                     No Results Found
                   </h3>
                   <p className="text-center text-default-700">
-                    We couldn't find what you searched for. Try searching again.
+                    We couldn&apos;t find what you searched for. Try searching
+                    again.
                   </p>
                 </div>
               ) : (
