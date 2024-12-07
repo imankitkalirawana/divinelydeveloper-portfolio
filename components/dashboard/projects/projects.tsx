@@ -170,10 +170,10 @@ export default function Projects({ projects }: HotelProps) {
           return (
             <>
               <p className="text-bold whitespace-nowrap text-sm capitalize">
-                {humanReadableDate(project.updatedAt)}
+                {project.updatedAt ? humanReadableDate(project.updatedAt) : "-"}
               </p>
               <p className="text-bold whitespace-nowrap text-sm capitalize text-default-600">
-                {humanReadableTime(project.updatedAt)}
+                {project.updatedAt ? humanReadableTime(project.updatedAt) : "-"}
               </p>
             </>
           );
