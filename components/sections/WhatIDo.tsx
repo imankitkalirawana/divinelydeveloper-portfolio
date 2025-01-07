@@ -80,7 +80,7 @@ const Card = ({ card }: { card: CardType }) => {
   return (
     <div
       key={card.id}
-      className="group rounded-[30px] p-4 md:p-8 bg-[#2a272ea9] backdrop-blur-sm relative w-[300px] h-[300px] md:h-[400px] md:w-[450px] overflow-hidden"
+      className="group rounded-[30px] p-4 md:p-8 bg-[#2a272e70] backdrop-blur-xl relative w-[300px] h-[300px] md:h-[400px] md:w-[450px] overflow-hidden"
     >
       <motion.img
         src={card.url}
