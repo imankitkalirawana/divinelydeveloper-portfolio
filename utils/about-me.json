@@ -1,0 +1,19 @@
+{
+  "name": "Bhuneshvar",
+  "profession": "Web Developer",
+  "skills": ["React", "Next.js", "TailwindCSS"],
+  "projects": [
+    {
+      "name": "Portfolio Website",
+      "description": "A personal portfolio to showcase my work."
+    },
+    {
+      "name": "E-commerce Platform",
+      "description": "A platform for aspiring pilots."
+    }
+  ],
+  "contact": {
+    "email": "john.doe@example.com",
+    "website": "https://johnsportfolio.com"
+  }
+}
