@@ -3,6 +3,8 @@ import Project from "@/models/Project";
 import { connectDB } from "@/lib/db";
 import { auth } from "@/auth";
 
+//  get all projects
+
 export const GET = auth(async function GET() {
   try {
     await connectDB();
