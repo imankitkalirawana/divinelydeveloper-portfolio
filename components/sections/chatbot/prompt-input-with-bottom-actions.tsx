@@ -12,16 +12,13 @@ import { addMessage } from "@/store/slices/chat-history-slice";
 export default function Component() {
   const dispatch = useDispatch();
   const [prompt, setPrompt] = React.useState<string>("");
-  const [messages, setMessages] = useState<{ user: string; model: string }[]>(
-    [],
-  );
+
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = async () => {
     if (!prompt.trim()) return;
 
     const userMessage = prompt.trim();
-    setMessages((prev) => [...prev, { user: userMessage, model: "" }]);
     dispatch(addMessage({ role: "user", parts: [{ text: userMessage }] }));
     setPrompt("");
     setIsLoading(true);
@@ -35,11 +32,6 @@ export default function Component() {
 
       const data = await response.json();
 
-      setMessages((prev) => {
-        const newMessages = [...prev];
-        newMessages[newMessages.length - 1].model = data.response;
-        return newMessages;
-      });
       dispatch(
         addMessage({
           role: "model",
@@ -47,12 +39,6 @@ export default function Component() {
         }),
       );
     } catch (error) {
-      setMessages((prev) => {
-        const newMessages = [...prev];
-        newMessages[newMessages.length - 1].model =
-          "Sorry, I'm having trouble responding right now. Please try again.";
-        return newMessages;
-      });
       dispatch(
         addMessage({
           role: "model",
@@ -76,7 +62,7 @@ export default function Component() {
   };
 
   return (
-    <div className="flex w-full fixed bottom-10 mx-auto max-w-5xl flex-col gap-4">
+    <div className="flex w-full fixed px-4 bottom-10 left-0 mx-auto max-w-5xl flex-col gap-4">
       <p className="px-2 text-tiny text-default-500">
         This bot can make mistakes. Consider checking important information.
       </p>
