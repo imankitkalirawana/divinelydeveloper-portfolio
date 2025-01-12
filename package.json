@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "@iconify/react": "^5.0.2",
     "@nextui-org/react": "^2.4.6",
     "@radix-ui/react-slot": "^1.1.0",
+    "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
@@ -32,6 +34,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-inview": "^4.5.1",
+    "react-markdown": "^9.0.3",
+    "react-redux": "^9.2.0",
     "recharts": "^2.12.7",
     "remark-gfm": "^4.0.0",
     "resize-observer-polyfill": "^1.5.1",

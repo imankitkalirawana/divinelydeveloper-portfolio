@@ -54,3 +54,9 @@ export interface Social extends Base {
   priority: number;
   category: "social" | "resource" | "byme" | "other" | "featured";
 }
+
+export interface ChatHistory {
+  id?: string;
+  role: "user" | "model" | "system";
+  parts: { text: string }[];
+}

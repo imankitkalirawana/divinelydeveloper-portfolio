@@ -1,12 +1,15 @@
 import { auth } from "@/auth";
-import fs from "fs/promises";
 import { NextResponse } from "next/server";
-
-const aboutMeFilePath = "./utils/about-me.json";
+import { generateResponse } from "@/utils/chatbot";
 
 export const POST = auth(async function POST(request: any) {
   try {
+    const { message } = await request.json();
+
+    const response = await generateResponse(message);
+    return NextResponse.json({ response });
   } catch (error) {
+    console.error(error);
     return NextResponse.json({ error: error }, { status: 500 });
   }
 });

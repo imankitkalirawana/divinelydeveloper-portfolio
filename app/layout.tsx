@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Navbar from "@/components/sections/Navbar";
 import { auth } from "@/auth";
+import ChatbotPopup from "@/components/sections/chatbot-popup";
 
 export const metadata: Metadata = {
   title: "Bhuneshvar - Divinely Developer",
@@ -52,6 +53,7 @@ export default async function RootLayout({
       <body className="font-ppneuemachinabold bg-background text-foreground">
         <Providers>
           <Navbar session={session} />
+          <ChatbotPopup />
           <main className="mt-24">{children}</main>
         </Providers>
       </body>

@@ -6,10 +6,12 @@ export default function WorkButton({
   className,
   onClick,
   isLoading,
+  children = "Let's Talk",
 }: {
   className?: string;
   onClick?: () => void;
   isLoading?: boolean;
+  children?: React.ReactNode;
 }) {
   return (
     <Button
@@ -23,7 +25,7 @@ export default function WorkButton({
       }}
     >
       <span className="absolute bottom-0 left-0 h-48 w-full origin-bottom translate-y-full transform overflow-hidden rounded-full bg-white/15 transition-all duration-300 ease-out group-hover:translate-y-14"></span>
-      <span>Let&apos;s Talk</span>
+      <span>{children}</span>
     </Button>
   );
 }
