@@ -13,7 +13,7 @@ export default function ChatbotPopup() {
     return null;
   }
   return (
-    <div className="fixed right-5 bottom-5">
+    <div className="fixed z-[19] right-5 bottom-5">
       <Button isIconOnly as={Link} href="/chatbot">
         <Icon icon="lets-icons:chat-fill" width="24" height="24" />
       </Button>
