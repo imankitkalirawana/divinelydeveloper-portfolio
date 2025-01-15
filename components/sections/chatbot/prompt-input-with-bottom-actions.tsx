@@ -62,7 +62,7 @@ export default function Component() {
   };
 
   return (
-    <div className="flex w-full fixed px-4 bottom-10 left-0 mx-auto max-w-5xl flex-col gap-4">
+    <div className="flex w-full fixed px-4 bottom-10 left-1/2 -translate-x-1/2 mx-auto max-w-5xl flex-col gap-4">
       <p className="px-2 text-tiny text-default-500">
         This bot can make mistakes. Consider checking important information.
       </p>
