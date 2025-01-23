@@ -40,6 +40,14 @@ const Banner = () => {
             viewport={{ once: isOnce }}
           />
           <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, type: "spring", stiffness: 100 }}
+            className="text-lg"
+          >
+            I CAN
+          </motion.div>
+          <motion.div
             style={{ color: color }}
             initial="hidden"
             whileInView="visible"

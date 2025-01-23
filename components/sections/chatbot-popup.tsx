@@ -28,7 +28,14 @@ export default function ChatbotPopup() {
   }
   return (
     <div className="fixed z-[19] right-5 bottom-5">
-      <Button isIconOnly as={Link} size="lg" href="/chatbot">
+      <Button
+        isIconOnly
+        color="secondary"
+        variant="flat"
+        as={Link}
+        size="lg"
+        href="/chatbot"
+      >
         <Icon icon="lets-icons:chat-fill" width="24" height="24" />
       </Button>
     </div>

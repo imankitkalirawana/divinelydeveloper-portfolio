@@ -35,9 +35,11 @@ const Showreel = () => {
             <WorkButton
               className="w-full mt-4 md:w-fit"
               onClick={() => {
-                router.push("/contact");
+                window.open("/resume.pdf", "_blank");
               }}
-            />
+            >
+              Resume
+            </WorkButton>
           </div>
         </motion.div>
         <motion.div
@@ -63,7 +65,9 @@ const Showreel = () => {
               <p className="font-ppneuemachinaregular mt-8 relative text-sm md:text-lg text-[#3b3b3b]">
                 I specialize in building dynamic web solutions that effectively
                 showcase and represent your business, leveraging cutting-edge
-                design and development techniques.
+                design and development techniques, backed by{" "}
+                {new Date().getFullYear() - 2021} years of experience in web
+                development.
                 <img
                   src="/sparkle-filled.svg"
                   width={70}
