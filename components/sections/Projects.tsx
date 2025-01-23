@@ -16,7 +16,8 @@ import {
   DropdownItem,
   Image,
 } from "@nextui-org/react";
-import { link } from "fs";
+import ImagePlaceholder from "../ui/image-placeholder";
+import Link from "next/link";
 
 interface Props {
   projects: ProjectType[];
@@ -60,8 +61,8 @@ function Projects({ projects }: Props) {
 
   const y = useTransform(
     scrollYProgress,
-    [-0.3, 1.2],
-    [isMobile ? "60%" : "50%", "-90%"],
+    [0, 2],
+    [isMobile ? "60%" : "90%", "-90%"],
   );
   const backdrop = useTransform(
     scrollYProgress,
@@ -113,37 +114,38 @@ const ProjectCard = ({ project }: { project: ProjectType }) => {
 
   return (
     <Card
-      isHoverable
-      isPressable
       className="backdrop-blur-md hover:bg-default-200/30"
-      // onPress={() => {
-      //   window.open(project.url, "_blank");
-      // }}
-      // onContextMenu={(e) => {
-      //   e.preventDefault();
-      //   window.open(`/${link._id}/edit`, "_blank");
-      // }}
+      as={Link}
+      href={`/work/${project.slug}`}
     >
       <CardBody className="gap-2">
         <div className="w-full">
-          <Image
-            isBlurred
-            isLoading={isLoading}
-            src={isError ? PLACEHOLDERS.image : project.thumbnail.src}
-            onLoad={() => {
-              setIsLoading(false);
-            }}
-            onError={() => {
-              setIsError(true);
-            }}
-            loading="lazy"
-            alt={project.title}
-            className="mb-4 aspect-video w-full bg-default-200 object-cover"
-            width={600}
-            classNames={{
-              wrapper: "aspect-video",
-            }}
-          />
+          {isError ? (
+            <ImagePlaceholder
+              title={project.title}
+              subtitle={project.previewlink || project.client || project.github}
+              message="Failed to load image"
+            />
+          ) : (
+            <Image
+              isBlurred
+              isLoading={isLoading}
+              src={isError ? PLACEHOLDERS.image : project.thumbnail.src}
+              onLoad={() => {
+                setIsLoading(false);
+              }}
+              onError={() => {
+                setIsError(true);
+              }}
+              loading="lazy"
+              alt={project.title}
+              className="mb-4 aspect-video w-full bg-default-200 object-cover"
+              width={600}
+              classNames={{
+                wrapper: "aspect-video",
+              }}
+            />
+          )}
         </div>
         <div className="flex items-center gap-2">
           <div className="flex flex-col">
