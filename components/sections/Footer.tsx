@@ -4,10 +4,10 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <div className="flex flex-col font-ppneuemachinaregular pb-24">
+      <div className="flex flex-col font-pp-neue-machina pb-24">
         <div className="flex gap-2 text-2xl items-center">
           <Avatar src="/divinelydeveloper.jpg" />
-          <h1 className="font-ppneuemachinaregular">Bhuneshvar</h1>
+          <h1>Bhuneshvar</h1>
         </div>
         <div className="flex flex-col md:flex-row mt-12 justify-between">
           <div className="text-base flex flex-col">

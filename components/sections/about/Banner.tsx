@@ -3,14 +3,12 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
 
-const colors = ["#da68c5", "#35afc6", "#d68991"];
-
 const Banner = () => {
   const [isOnce] = useState(true);
 
   return (
     <>
-      <div className="flex px-4 md:px-0 flex-col mt-8 md:mt-0 justify-between items-start md:items-center md:pb-8 text-[60px] leading-[60px] md:text-[110px] md:leading-[110px]">
+      <div className="flex px-4 md:px-0 font-extrabold flex-col mt-8 md:mt-0 justify-between items-start md:items-center md:pb-8 text-[60px] leading-[60px] md:text-[110px] md:leading-[110px]">
         <div className="mt-12 relative">
           <motion.img
             src="/sparkle-filled.svg"
@@ -54,7 +52,7 @@ const Banner = () => {
               stiffness: 100,
               delay: 0.1,
             }}
-            className="font-ppneuemigraitalicbold text-secondary"
+            className="font-extrabold italic font-pp-migra text-secondary"
           >
             with Millions of
           </motion.div>

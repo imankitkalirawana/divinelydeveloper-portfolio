@@ -29,7 +29,7 @@ const Navbar = ({ session }: Props) => {
   return (
     <>
       <motion.div
-        className="bg-transparent top-0 md:bg-background scroll-smooth w-full fixed z-[20]"
+        className="bg-transparent  top-0 md:bg-background scroll-smooth w-full fixed z-[20]"
         initial={{
           y: -100,
           opacity: 0,
@@ -47,7 +47,7 @@ const Navbar = ({ session }: Props) => {
       >
         <div
           className={cn(
-            "flex bg-background font-ppneuemachinaregular max-w-7xl mx-auto px-4 justify-between text-[22px]",
+            "flex bg-background font-pp-neue-machina max-w-7xl mx-auto px-4 justify-between text-[22px]",
           )}
         >
           <motion.div

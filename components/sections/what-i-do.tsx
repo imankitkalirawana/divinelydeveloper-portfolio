@@ -32,7 +32,7 @@ const HorizontalScrollCarousel = () => {
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-end pb-8 overflow-hidden">
-        <div className="absolute top-0 left-[50%] translate-x-[-50%] text-[60px] leading-[60px] md:text-[80px] md:leading-[80px] text-center mt-20">
+        <div className="absolute font-extrabold top-0 left-[50%] translate-x-[-50%] text-[60px] leading-[60px] md:text-[80px] md:leading-[80px] text-center mt-20">
           <img
             src="/sparkle.svg"
             width={70}
@@ -45,7 +45,7 @@ const HorizontalScrollCarousel = () => {
           />
           <div>What I</div>
           <div className="flex gap-2">
-            <span className="font-ppneuemigraitalicbold text-secondary -rotate-12 block">
+            <span className="font-extrabold italic font-pp-migra text-secondary -rotate-12 block">
               Realllly
             </span>
             <span>Do?</span>
@@ -118,7 +118,7 @@ const Card = ({ card }: { card: CardType }) => {
         ))}
       </motion.h3>
       <motion.p
-        className="font-ppneuemachinaregular mt-4 text-[14px] md:text-base"
+        className=" mt-4 text-[14px] md:text-base"
         variants={{
           hidden: { opacity: 0 },
           show: {

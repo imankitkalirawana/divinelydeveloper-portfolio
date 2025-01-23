@@ -23,7 +23,7 @@ const Banner = () => {
     <>
       <div
         ref={ref}
-        className="flex flex-col mt-24 md:mt-0 justify-between items-start md:items-center md:pb-52 pb-24 text-[70px] leading-[70px] md:text-[110px] md:leading-[110px]"
+        className="flex flex-col font-extrabold mt-24 md:mt-0 justify-between items-start md:items-center md:pb-52 pb-24 text-[70px] leading-[70px] md:text-[110px] md:leading-[110px]"
       >
         <div className="mt-12 relative">
           <motion.img
@@ -43,7 +43,7 @@ const Banner = () => {
             initial={{ opacity: 0, y: 50, scale: 0.5 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, type: "spring", stiffness: 100 }}
-            className="text-lg"
+            className="text-lg italic font-pp-migra"
           >
             I CAN
           </motion.div>

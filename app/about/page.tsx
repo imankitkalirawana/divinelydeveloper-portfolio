@@ -4,7 +4,7 @@ import Stats from "@/components/sections/about/Stats";
 import Commitment from "@/components/sections/commitment";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
-import Navbar from "@/components/sections/Navbar";
+import Navbar from "@/components/sections/navbar";
 import React from "react";
 
 const Page = () => {

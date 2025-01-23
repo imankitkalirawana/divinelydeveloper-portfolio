@@ -14,10 +14,9 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        ppneuemachinaregular: ["PPNeueMachinaRegular", "sans-serif"],
-        ppneuemachinabold: ["PPNeueMachinaBold", "sans-serif"],
-        ppneuemigraitalicbold: ["PPMigraItalicExtraboldItalic", "sans-serif"],
-        clashdisplaymedium: ["ClashDisplayMedium", "sans-serif"],
+        "pp-neue-machina": ["PPNeueMachina", "sans-serif"],
+        "pp-migra": ["PPMigra", "sans-serif"],
+        "clash-display": ["ClashDisplay", "sans-serif"],
       },
     },
     animation: {

@@ -4,10 +4,19 @@ import Marquee from "@/components/magicui/marquee";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Project, Project as ProjectType } from "@/lib/interface";
-import Image from "next/image";
-import { isImage } from "@/functions/utility";
-import { getProjects } from "@/functions/get";
-import { isCaching } from "@/lib/config";
+import { isCaching, PLACEHOLDERS } from "@/lib/config";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import {
+  Card,
+  CardBody,
+  Dropdown,
+  DropdownTrigger,
+  Button,
+  DropdownMenu,
+  DropdownItem,
+  Image,
+} from "@nextui-org/react";
+import { link } from "fs";
 
 interface Props {
   projects: ProjectType[];
@@ -72,11 +81,11 @@ function Projects({ projects }: Props) {
             style={{ filter: backdrop }}
             className="absolute -z-10 top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"
           >
-            <div className="md:text-[90px] text-[50px] leading-[50px] md:leading-[90px] text-center">
+            <div className="md:text-[90px] font-extrabold text-[50px] leading-[50px] md:leading-[90px] text-center">
               My Great
             </div>
             <Marquee pauseOnHover={false} className="[--duration:20s]">
-              <div className="md:text-[200px] md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-ppneuemigraitalicbold text-primary after:text-secondary">
+              <div className="md:text-[200px] md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-extrabold italic font-pp-migra text-primary after:text-secondary">
                 WORK
               </div>
             </Marquee>
@@ -85,11 +94,11 @@ function Projects({ projects }: Props) {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
 
           <motion.div
-            className="flex flex-col gap-24 w-full p-4 md:p-12"
+            className="mt-12 grid max-w-[96rem] px-4 md:px-8 lg:px-12 mx-auto w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
             style={{ y }}
           >
-            {projects.slice(0, 5).map((project, index) => (
-              <ProjectCard project={project} index={index} key={index} />
+            {projects.slice(0, 12).map((project, index) => (
+              <ProjectCard project={project} key={index} />
             ))}
           </motion.div>
         </div>
@@ -98,47 +107,77 @@ function Projects({ projects }: Props) {
   );
 }
 
-const ProjectCard = ({
-  project,
-  index,
-}: {
-  project: ProjectType;
-  index: number;
-}) => {
-  const [hasError, setHasError] = useState(false);
+const ProjectCard = ({ project }: { project: ProjectType }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
   return (
-    <div
-      className={`flex flex-col items-${
-        (index + 1) % 2 === 0 ? "end" : "start"
-      } w-full`}
-      // href={project.}
+    <Card
+      isHoverable
+      isPressable
+      className="backdrop-blur-md hover:bg-default-200/30"
+      // onPress={() => {
+      //   window.open(project.url, "_blank");
+      // }}
+      // onContextMenu={(e) => {
+      //   e.preventDefault();
+      //   window.open(`/${link._id}/edit`, "_blank");
+      // }}
     >
-      <div className="relative aspect-[16/10] overflow-hidden rounded-3xl flex w-full md:w-[50%]">
-        {isImage(project.thumbnail.src) ? (
+      <CardBody className="gap-2">
+        <div className="w-full">
           <Image
+            isBlurred
+            isLoading={isLoading}
+            src={isError ? PLACEHOLDERS.image : project.thumbnail.src}
+            onLoad={() => {
+              setIsLoading(false);
+            }}
+            onError={() => {
+              setIsError(true);
+            }}
+            loading="lazy"
             alt={project.title}
-            className="absolute top-0 w-full object-cover"
-            width={400}
-            height={400}
-            src={hasError ? "/project.jpg" : `${project.thumbnail.src}`}
-            onError={() => !hasError && setHasError(true)}
+            className="mb-4 aspect-video w-full bg-default-200 object-cover"
+            width={600}
+            classNames={{
+              wrapper: "aspect-video",
+            }}
           />
-        ) : (
-          <video
-            autoPlay
-            loop
-            muted
-            className="object-cover w-full pointer-events-none"
-            playsInline
-            width={400}
-            height={400}
-            controls={false}
-            preload="auto"
-            src={hasError ? "/showreel.mp4" : `${project.thumbnail.src}`}
-            onError={() => !hasError && setHasError(true)}
-          />
-        )}
-      </div>
-    </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <div className="flex flex-col">
+            <h3>{project.title}</h3>
+            <p className="line-clamp-1" title={project.description}>
+              {project.description}
+            </p>
+          </div>
+          <div>
+            <Dropdown aria-label="Options" placement="top-end">
+              <DropdownTrigger>
+                <Button variant="flat" size="sm" isIconOnly>
+                  <Icon icon="tabler:dots-vertical" width={16} />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem key="view" target="_BLANK" href={project._id}>
+                  View
+                </DropdownItem>
+                <DropdownItem key="edit" href={`/${project._id}/edit`}>
+                  Edit
+                </DropdownItem>
+                <DropdownItem
+                  key="delete"
+                  className="text-danger"
+                  color="danger"
+                >
+                  Delete
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        </div>
+      </CardBody>
+    </Card>
   );
 };

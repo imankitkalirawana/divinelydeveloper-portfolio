@@ -10,16 +10,13 @@ const Contact = () => {
   return (
     <>
       <Marquee pauseOnHover={false} className="[--duration:20s] mt-48">
-        <div className="text-[100px] leading-[100px] md:text-[200px] md:leading-[200px] after:content-['•'] after:text-[80px] gap-4 flex items-center uppercase after:text-secondary">
-          Have a{" "}
-          <span className="text-primary font-ppneuemigraitalicbold mr-4">
-            great
-          </span>{" "}
+        <div className="text-[100px] font-extrabold leading-[100px] md:text-[200px] md:leading-[200px] after:content-['•'] after:text-[80px] gap-4 flex items-center uppercase after:text-secondary">
+          Have a <span className="text-primary  italic mr-4">great</span>{" "}
           project?
         </div>
       </Marquee>
       <div className="flex flex-col md:flex-row mb-4 justify-between items-center max-w-7xl mx-auto p-8">
-        <p className="text-xl self-start md:text-[18px] md:max-w-[50%] font-ppneuemachinaregular">
+        <p className="text-xl self-start md:text-[18px] md:max-w-[50%]">
           Have a project in mind?
           <br />
           Let&apos;s work together!

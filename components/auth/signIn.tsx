@@ -44,7 +44,7 @@ const SignIn = () => {
     },
   });
   return (
-    <div className="mt-12 flex font-ppneuemachinaregular h-full w-full flex-col items-center justify-center">
+    <div className="mt-12 flex h-full w-full flex-col items-center justify-center">
       <div className="mt-2 flex w-full max-w-sm flex-col gap-4 rounded-large px-8 border border-default py-6 shadow-lg">
         <div className="flex flex-col items-center pb-6">
           <Avatar src="/logo.png" className="p-2 bg-white" size="lg" />

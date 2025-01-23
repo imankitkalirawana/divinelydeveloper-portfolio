@@ -51,10 +51,10 @@ const Testimonial = ({ testimonials }: Props) => {
         size={100}
         className="mt-36 pt-20 pb-24 px-4 overflow-hidden md:px-12"
       >
-        <div className="text-[50px] leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[90px] text-center">
+        <div className="text-[50px] font-extrabold leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[90px] text-center">
           <div>What My</div>
           <div className="flex gap-2">
-            <span className="font-ppneuemigraitalicbold text-secondary -rotate-12 block">
+            <span className="font-extrabold italic font-pp-migra text-secondary -rotate-12 block">
               Clientsss
             </span>
             <span>Say?</span>
@@ -160,13 +160,11 @@ const Card = ({
       )}
     >
       <div className="flex flex-col">
-        <div className="text-[28px]">{card?.title}</div>
-        <div className="text-[15px] mt-4 font-ppneuemachinaregular">
-          {card?.comment}
-        </div>
+        <div className="text-[28px] font-extrabold">{card?.title}</div>
+        <div className="text-[15px] mt-4 ">{card?.comment}</div>
         <div className="mt-8 flex gap-2 items-center text-[20px]">
           <Avatar src={card?.src} />
-          <span>{card?.name}</span>
+          <span className="font-bold">{card?.name}</span>
         </div>
       </div>
     </div>

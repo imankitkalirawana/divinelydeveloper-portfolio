@@ -20,9 +20,9 @@ const Header = () => {
             width={70}
             className="text-primary absolute left-[90%] md:left-[72%] top-[0%]"
           />
-          <div>Let&apos;s</div>
+          <div className="font-extrabold">Let&apos;s</div>
           <div className="flex gap-2">
-            <span className="font-ppneuemigraitalicbold text-secondary -rotate-12 block">
+            <span className="font-extrabold italic font-pp-migra text-secondary -rotate-12 block">
               Collaborate!
             </span>
           </div>

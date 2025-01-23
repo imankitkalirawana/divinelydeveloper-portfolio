@@ -16,14 +16,14 @@ const Stats = () => {
 const Card = ({ stat }: { stat: StatType }) => {
   return (
     <div className="flex flex-col items-center gap-2">
-      <i className="font-ppneuemachinaregular text-primary">
+      <i className=" text-primary">
         <Counter
           targetValue={parseInt(stat.value)}
           className="text-[90px] leading-[90px] text-primary"
         />
         +
       </i>
-      <div className="text-[28px] font-clashdisplaymedium leading-[30px] text-center">
+      <div className="text-[28px] font-clash-display leading-[30px] text-center">
         {stat.title}
       </div>
     </div>

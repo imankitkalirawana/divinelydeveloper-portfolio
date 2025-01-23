@@ -42,10 +42,10 @@ export default function Project({ project }: Props) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.7 }}
-        className="max-w-7xl font-ppneuemachinaregular mx-auto p-4 sm:p-8 md:p-12"
+        className="max-w-7xl  mx-auto p-4 sm:p-8 md:p-12"
       >
         <div className="flex flex-col">
-          <h1 className="text-4xl flex items-center gap-4 font-ppneuemachinabold sm:text-5xl md:text-6xl">
+          <h1 className="text-4xl flex items-center gap-4 font-extrabold sm:text-5xl md:text-6xl">
             {project.title}
           </h1>
           <p className=" text-default-600 text-xl sm:text-2xl mt-8">

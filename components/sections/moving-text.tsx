@@ -26,7 +26,7 @@ const MovingText = () => {
       >
         <Marquee
           pauseOnHover={false}
-          className="[--duration:10s] text-[100px] flex items-center leading-[100px] text-default uppercase font-ppneuemigraitalicbold"
+          className="[--duration:10s] text-[100px] flex items-center leading-[100px] text-default uppercase font-extrabold italic font-pp-migra"
           repeat={5}
         >
           <div className="hover:text-primary">NEXTJS</div>
@@ -57,7 +57,7 @@ const MovingText = () => {
         <Marquee
           pauseOnHover={false}
           reverse
-          className="[--duration:10s] text-[100px] flex items-center leading-[100px] text-default uppercase font-ppneuemigraitalicbold"
+          className="[--duration:10s] text-[100px] flex items-center leading-[100px] text-default uppercase font-extrabold italic font-pp-migra"
           repeat={5}
         >
           <div className="hover:text-primary">Shadcn</div>

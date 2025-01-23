@@ -41,11 +41,11 @@ const Skills = () => {
             style={{ filter: backdrop }}
             className="absolute -z-10 top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"
           >
-            <div className="md:text-[90px] text-[50px] leading-[50px] md:leading-[90px] text-center">
+            <div className="md:text-[90px] font-extrabold text-[50px] leading-[50px] md:leading-[90px] text-center">
               My Great
             </div>
             <Marquee pauseOnHover={false} className="[--duration:20s]">
-              <div className="md:text-[200px] uppercase md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-ppneuemigraitalicbold text-primary after:text-secondary">
+              <div className="md:text-[200px] uppercase md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-extrabold italic font-pp-migra text-primary after:text-secondary">
                 Skills
               </div>
             </Marquee>

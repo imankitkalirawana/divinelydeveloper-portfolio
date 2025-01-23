@@ -61,7 +61,7 @@ const Main = () => {
 
   return (
     <>
-      <section className="relative pb-8 flex flex-col md:flex-row gap-12 font-ppneuemachinaregular">
+      <section className="relative pb-8 flex flex-col md:flex-row gap-12 ">
         <div className="relative md:w-[40%] hidden md:block w-full overflow-hidden rounded-3xl">
           <Image src={"/imankitkalirawana.jpg"} alt="" className="shadow-lg" />
           <Button
@@ -183,7 +183,7 @@ const Main = () => {
         radius="lg"
         className="rounded-3xl"
       >
-        <ModalContent className="font-ppneuemachinaregular px-4">
+        <ModalContent className=" px-4">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col mt-8 items-center gap-1">

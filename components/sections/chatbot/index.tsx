@@ -52,7 +52,7 @@ const Chatbot = () => {
   };
 
   return (
-    // <div className="flex font-ppneuemachinaregular flex-col p-4 bg-gray-100 rounded-lg shadow-md w-full max-w-md">
+    // <div className="flex  flex-col p-4 bg-gray-100 rounded-lg shadow-md w-full max-w-md">
     //   <div className="overflow-y-auto h-64 mb-4">
     //     {messages.map((msg, index) => (
     //       <div key={index} className="mb-4">
@@ -93,7 +93,7 @@ const Chatbot = () => {
     // </div>
     <div
       className={cn(
-        "flex relative px-4 font-ppneuemachinaregular max-w-5xl mx-auto h-full w-full flex-col gap-8",
+        "flex relative px-4  max-w-5xl mx-auto h-full w-full flex-col gap-8",
       )}
     >
       <ScrollShadow className={cn("flex pb-60 h-full flex-col")}>

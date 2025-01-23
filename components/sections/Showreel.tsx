@@ -28,7 +28,7 @@ const Showreel = () => {
         >
           <hr className="border-default my-4 border-1" />
           <div className="flex flex-col md:flex-row mb-12 justify-between items-center">
-            <p className="text-[20px] md:text-[22px] md:max-w-[50%] font-ppneuemachinaregular">
+            <p className="text-[20px] md:text-[22px] md:max-w-[50%] ">
               I am a web developer proficient in Next.js and modern
               technologies, open to collaborating on innovative projects.
             </p>
@@ -51,8 +51,8 @@ const Showreel = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col text-[60px] leading-[60px] md:text-[80px] md:leading-[80px]">
-              <span>My Nice</span>
-              <span className="text-[#32bcd6] relative font-ppneuemigraitalicbold -rotate-3">
+              <span className="font-extrabold">My Nice</span>
+              <span className="text-[#32bcd6] relative font-pp-migra italic font-extrabold -rotate-3">
                 <img
                   src="/sparkle.svg"
                   width={70}
@@ -62,7 +62,7 @@ const Showreel = () => {
               </span>
             </div>
             <div className="md:max-w-[50%] relative">
-              <p className="font-ppneuemachinaregular mt-8 relative text-sm md:text-lg text-[#3b3b3b]">
+              <p className=" mt-8 relative text-sm md:text-lg text-[#3b3b3b]">
                 I specialize in building dynamic web solutions that effectively
                 showcase and represent your business, leveraging cutting-edge
                 design and development techniques, backed by{" "}

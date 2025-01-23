@@ -138,7 +138,7 @@ function ProjectCard({
 
           {/* <Tooltip
           isOpen={isOpen}
-          className="capitalize pt-2 !z-10 font-ppneuemachinaregular"
+          className="capitalize pt-2 !z-10 "
           content={project.status.split("-").join(" ")}
           placement="left"
           color={tooltipColorMap[project.status] as any}
@@ -160,7 +160,7 @@ function ProjectCard({
           </h3>
         </div>
 
-        <div className="flex flex-col font-ppneuemachinaregular gap-2">
+        <div className="flex flex-col  gap-2">
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <Chip

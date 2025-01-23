@@ -59,23 +59,27 @@
 }
 
 @font-face {
-  font-family: "PPNeueMachinaRegular";
+  font-family: "PPNeueMachina";
   src: url("/fonts/PP_Neue_Machina_Regular.otf");
 }
 
 @font-face {
-  font-family: "PPNeueMachinaBold";
+  font-family: "PPNeueMachina";
   src: url("/fonts/PP_Neue_Machina_Ultrabold.ttf");
+  font-weight: 800;
 }
 
 @font-face {
-  font-family: "PPMigraItalicExtraboldItalic";
+  font-family: "PPMigra";
   src: url("/fonts/PP_Migra_Italic_Extrabold_Italic.ttf");
+  font-weight: 800;
+  font-style: italic;
 }
 
 @font-face {
-  font-family: "ClashDisplayMedium";
+  font-family: "ClashDisplay";
   src: url("/fonts/Clash_Display_Medium.otf");
+  font-weight: 500;
 }
 
 video::-webkit-media-controls {

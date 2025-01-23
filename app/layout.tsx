@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import Navbar from "@/components/sections/Navbar";
+import Navbar from "@/components/sections/navbar";
 import { auth } from "@/auth";
 import ChatbotPopup from "@/components/sections/chatbot-popup";
 
@@ -50,7 +50,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <body className="font-ppneuemachinabold bg-background text-foreground">
+      <body className="font-pp-neue-machina bg-background text-foreground">
         <Providers>
           <Navbar session={session} />
           <ChatbotPopup />

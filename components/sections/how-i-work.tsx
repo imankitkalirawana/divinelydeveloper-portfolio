@@ -30,7 +30,7 @@ const HowIWork = () => {
       >
         <div className="md:sticky top-0 flex flex-col md:flex-row md:h-screen items-start justify-end pb-8 md:overflow-hidden">
           <div className="md:text-[90px] text-[50px] leading-[50px] mb-24 md:mb-0 md:absolute top-[50%] md:translate-y-[-50%] left-0 md:leading-[90px] text-center md:text-start">
-            <div className="relative">
+            <div className="relative font-extrabold">
               <span>How I</span>
               <img
                 src="/sparkle.svg"
@@ -39,7 +39,7 @@ const HowIWork = () => {
               />
             </div>
             <div className="flex w-full justify-center md:justify-start relative gap-2">
-              <span className="font-ppneuemigraitalicbold text-secondary -rotate-12 block">
+              <span className="font-extrabold italic font-pp-migra text-secondary -rotate-12 block">
                 Work?
               </span>
               <img
@@ -48,7 +48,7 @@ const HowIWork = () => {
                 className="absolute left-[60%] top-[0%] -rotate-6"
               />
             </div>
-            <p className="md:text-base text-2xl md:max-w-96 mt-8 text-start font-ppneuemachinaregular">
+            <p className="md:text-base text-2xl md:max-w-96 mt-8 text-start ">
               I prioritize clear communication and transparent processes to
               deliver web solutions that exceed expectations.
             </p>
@@ -91,14 +91,14 @@ const Card = ({ card }: { card: CardType }) => {
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <div className="bg-primary text-[40px] md:text-[35px] p-4 rounded-[50%] -skew-x-12 font-ppneuemigraitalicbold">
+      <div className="bg-primary text-[40px] md:text-[35px] p-4 rounded-[50%] -skew-x-12 font-extrabold italic font-pp-migra">
         0{card.id}
       </div>
       <div className="flex flex-col">
         <div className="text-[50px] leading-[55px] md:text-[60px] md:leading-[70px]">
           {card.title}
         </div>
-        <div className="text-lg md:text-[16px] mt-4 md:mt-10 font-ppneuemachinaregular md:max-w-md">
+        <div className="text-lg md:text-[16px] mt-4 md:mt-10  md:max-w-md">
           {card.description}
         </div>
       </div>
@@ -111,7 +111,9 @@ const cards: CardType[] = [
     title: (
       <div>
         Strategy <br />
-        <span className="text-primary font-ppneuemigraitalicbold">Session</span>
+        <span className="text-primary font-extrabold italic font-pp-migra">
+          Session
+        </span>
       </div>
     ),
     id: 1,
@@ -123,7 +125,7 @@ const cards: CardType[] = [
       <div>
         Strategic
         <br />
-        <span className="text-primary font-ppneuemigraitalicbold">
+        <span className="text-primary font-extrabold italic font-pp-migra">
           Brainstorming
         </span>
       </div>
@@ -137,7 +139,7 @@ const cards: CardType[] = [
       <div>
         Establishing
         <br />
-        <span className="text-primary font-ppneuemigraitalicbold">
+        <span className="text-primary font-extrabold italic font-pp-migra">
           a Timeline
         </span>
       </div>
@@ -151,7 +153,7 @@ const cards: CardType[] = [
       <div>
         Start
         <br />
-        <span className="text-primary font-ppneuemigraitalicbold">
+        <span className="text-primary font-extrabold italic font-pp-migra">
           Developing
         </span>
       </div>
@@ -165,7 +167,9 @@ const cards: CardType[] = [
       <div>
         Feedback
         <br />
-        <span className="text-primary font-ppneuemigraitalicbold">Loop!</span>
+        <span className="text-primary font-extrabold italic font-pp-migra">
+          Loop!
+        </span>
       </div>
     ),
     id: 5,
@@ -177,7 +181,7 @@ const cards: CardType[] = [
       <div>
         Task
         <br />
-        <span className="text-primary font-ppneuemigraitalicbold">
+        <span className="text-primary font-extrabold italic font-pp-migra">
           Accomplished!
         </span>
       </div>

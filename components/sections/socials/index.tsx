@@ -68,13 +68,13 @@ export default function Socials() {
                 />
               </motion.div>
               <h2>Divinely Developer</h2>
-              <p className="text-default-800 text-center max-w-sm font-ppneuemachinaregular">
+              <p className="text-default-800 text-center max-w-sm ">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Voluptatibus, expedita!
               </p>
             </div>
             <div></div>
-            <div className="max-w-sm pb-8 mx-auto font-ppneuemachinaregular gap-4 px-4 mt-4 flex flex-col">
+            <div className="max-w-sm pb-8 mx-auto  gap-4 px-4 mt-4 flex flex-col">
               <Input
                 label="Search"
                 placeholder="eg. Github, Portfolio, etc."
@@ -146,7 +146,7 @@ export default function Socials() {
                               rel="noreferrer"
                               className="flex gap-2 items-center hover:bg-default-300 justify-between py-3 p-4 group hover:border-primary rounded-xl border border-default-500"
                             >
-                              <div className="flex items-center gap-4 font-ppneuemachinaregular">
+                              <div className="flex items-center gap-4 ">
                                 {item.icon ? (
                                   item.icon.includes(".") ? (
                                     <div
