@@ -1,16 +1,16 @@
 import React from "react";
 import BackgroundGradient from "@/components/components/BackgroundGradient";
-import Banner from "@/components/sections/Banner";
-import Commitment from "@/components/sections/Commitment";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/sections/Footer";
-import HowIWork from "@/components/sections/HowIWork";
-import MovingText from "@/components/sections/MovingText";
-import Showreel from "@/components/sections/Showreel";
-import WhatIDo from "@/components/sections/WhatIDo";
+import Banner from "@/components/sections/banner";
+import Commitment from "@/components/sections/commitment";
+import Contact from "@/components/sections/contact";
+import Footer from "@/components/sections/footer";
+import HowIWork from "@/components/sections/how-i-work";
+import MovingText from "@/components/sections/moving-text";
+import Showreel from "@/components/sections/showreel";
+import WhatIDo from "@/components/sections/what-i-do";
 import SmoothScroll from "@/components/smooth-scroll";
-import ProjectProvider from "@/components/sections/Projects";
-import TestimonialProvider from "@/components/sections/Testimonial";
+import ProjectProvider from "@/components/sections/projects";
+import TestimonialProvider from "@/components/sections/testimonial";
 
 export default function Home() {
   return (

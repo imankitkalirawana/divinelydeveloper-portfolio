@@ -3,13 +3,13 @@ import { isOnce } from "@/lib/utils";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-const WhatIDo = () => {
+export default function WhatIDo() {
   return (
     <div>
       <HorizontalScrollCarousel />
     </div>
   );
-};
+}
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -147,8 +147,6 @@ const Card = ({ card }: { card: CardType }) => {
     </div>
   );
 };
-
-export default WhatIDo;
 
 type CardType = {
   url: string;

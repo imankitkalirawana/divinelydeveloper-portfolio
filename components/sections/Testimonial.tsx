@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
 import { Testimonial as TestimonialInterface } from "@/lib/interface";
 import { Avatar } from "@nextui-org/react";
-import { getTestimonials } from "@/functions/get";
 import { isCaching } from "@/lib/config";
 
 interface Props {

@@ -1,9 +1,9 @@
 import Banner from "@/components/sections/about/Banner";
 import Skills from "@/components/sections/about/Skills";
 import Stats from "@/components/sections/about/Stats";
-import Commitment from "@/components/sections/Commitment";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/sections/Footer";
+import Commitment from "@/components/sections/commitment";
+import Contact from "@/components/sections/contact";
+import Footer from "@/components/sections/footer";
 import Navbar from "@/components/sections/Navbar";
 import React from "react";
 
