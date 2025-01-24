@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import Navbar from "@/components/sections/_navbar";
+import Navbar from "@/components/sections/navbar";
 import { auth } from "@/auth";
 import ChatbotPopup from "@/components/sections/chatbot-popup";
 
