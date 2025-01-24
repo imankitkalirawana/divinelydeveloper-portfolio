@@ -6,11 +6,11 @@ import Contact from "@/components/sections/_contact";
 import Footer from "@/components/sections/_footer";
 import HowIWork from "@/components/sections/how-i-work";
 import MovingText from "@/components/sections/moving-text";
-import Showreel from "@/components/sections/showreel";
+import Showreel from "@/components/sections/_showreel";
 import WhatIDo from "@/components/sections/what-i-do";
 import SmoothScroll from "@/components/smooth-scroll";
-import ProjectProvider from "@/components/sections/projects";
-import TestimonialProvider from "@/components/sections/testimonial";
+import ProjectProvider from "@/components/sections/_projects";
+import TestimonialProvider from "@/components/sections/_testimonial";
 
 export default function Home() {
   return (
