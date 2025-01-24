@@ -3,7 +3,7 @@ import Marquee from "@/components/magicui/marquee";
 import { motion, useScroll, useTransform } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { Image } from "@nextui-org/react";
-import { AnimatedBeamMain } from "./AnimatedBeams";
+import { AnimatedBeamMain } from "./animated-beams";
 
 const Skills = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
