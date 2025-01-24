@@ -1,10 +1,10 @@
 import Banner from "@/components/sections/about/Banner";
 import Skills from "@/components/sections/about/Skills";
 import Stats from "@/components/sections/about/Stats";
-import Commitment from "@/components/sections/commitment";
-import Contact from "@/components/sections/contact";
-import Footer from "@/components/sections/footer";
-import Navbar from "@/components/sections/navbar";
+import Commitment from "@/components/sections/_commit";
+import Contact from "@/components/sections/_contact";
+import Footer from "@/components/sections/_footer";
+import Navbar from "@/components/sections/_navbar";
 import React from "react";
 
 const Page = () => {
