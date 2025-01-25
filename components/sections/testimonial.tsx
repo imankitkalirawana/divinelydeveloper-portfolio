@@ -5,11 +5,12 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
 import { Testimonial as TestimonialInterface } from "@/lib/interface";
-import { Avatar } from "@nextui-org/react";
+import { Avatar, Tooltip } from "@nextui-org/react";
 import { isCaching } from "@/lib/config";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface Props {
-  testimonials: TestimonialInterface[];
+  education: EducationType[];
 }
 
 export default function TestimonialProvider() {
@@ -30,12 +31,12 @@ export default function TestimonialProvider() {
 
   return (
     <>
-      <Testimonial testimonials={testimonials} />
+      <Testimonial education={education} />
     </>
   );
 }
 
-const Testimonial = ({ testimonials }: Props) => {
+const Testimonial = ({ education }: Props) => {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
 
@@ -51,13 +52,13 @@ const Testimonial = ({ testimonials }: Props) => {
         size={100}
         className="mt-36 pt-20 pb-24 px-4 overflow-hidden md:px-12"
       >
-        <div className="text-[50px] font-extrabold leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[90px] text-center">
-          <div>What My</div>
+        <div className="text-[50px] font-extrabold leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[80px] text-center">
+          <div>Experience</div>
+          <span className="font-extrabold italic font-pp-migra text-secondary -rotate-[20deg] block">
+            &
+          </span>
           <div className="flex gap-2">
-            <span className="font-extrabold italic font-pp-migra text-secondary -rotate-12 block">
-              Clientsss
-            </span>
-            <span>Say?</span>
+            <span>Education</span>
           </div>
         </div>
         <div className="flex gap-24 md:gap-16 mt-12 flex-col items-center">
@@ -74,8 +75,11 @@ const Testimonial = ({ testimonials }: Props) => {
                   : { opacity: 0, y: 50, rotate: 0 }
               }
               transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{
+                rotate: 0,
+              }}
             >
-              <Card card={testimonials[0]} />
+              <Card card={education[0]} />
               <Tape className="top-[0%] translate-y-[-45%] right-0 translate-x-[20%] rotate-[25deg]" />
               <Tape className="bottom-[0%] translate-y-[50%] left-0 translate-x-[-35%] rotate-[25deg]" />
             </motion.div>
@@ -88,8 +92,11 @@ const Testimonial = ({ testimonials }: Props) => {
                   : { opacity: 0, y: 50, rotate: 0 }
               }
               transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{
+                rotate: 0,
+              }}
             >
-              <Card card={testimonials[1]} />
+              <Card card={education[1]} />
               <Tape className="top-[0%] translate-y-[-50%] left-[50%] translate-x-[-50%] rotate-[13deg]" />
               <Tape className="bottom-[0%] translate-y-[45%] left-0 translate-x-[-15%] rotate-[13deg]" />
             </motion.div>
@@ -107,8 +114,11 @@ const Testimonial = ({ testimonials }: Props) => {
                   : { opacity: 0, y: 50, rotate: 6 }
               }
               transition={{ duration: 0.5, delay: 0.4 }}
+              whileHover={{
+                rotate: 0,
+              }}
             >
-              <Card card={testimonials[2]} />
+              <Card card={education[2]} />
               <Tape className="top-[0%] translate-y-[-45%] right-0 translate-x-[20%] rotate-[30deg]" />
               <Tape className="bottom-[0%] translate-y-[50%] left-0 translate-x-[-35%] rotate-[30deg]" />
             </motion.div>
@@ -121,8 +131,11 @@ const Testimonial = ({ testimonials }: Props) => {
                   : { opacity: 0, y: 50, rotate: 0 }
               }
               transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{
+                rotate: 0,
+              }}
             >
-              <Card card={testimonials[3]} />
+              <Card card={education[3]} />
               <Tape className="top-[0%] translate-y-[-50%] left-[50%] translate-x-[-50%] rotate-[0deg]" />
               <Tape className="bottom-[0%] translate-y-[55%] left-0 translate-x-[-15%] rotate-[0deg]" />
             </motion.div>
@@ -148,63 +161,136 @@ const Card = ({
   card,
   className,
 }: {
-  card: TestimonialInterface;
+  card: EducationType;
   className?: string;
 }) => {
   return (
     <div
       key={card?._id}
       className={cn(
-        "flex gap-4 rounded-3xl md:w-[400px] p-8 aspect-square items-start bg-default",
+        "flex gap-4 rounded-3xl flex-col justify-between md:w-[400px] p-8 aspect-square items-start bg-default",
         className,
       )}
     >
-      <div className="flex flex-col">
-        <div className="text-[28px] font-extrabold">{card?.title}</div>
-        <div className="text-[15px] mt-4 ">{card?.comment}</div>
-        <div className="mt-8 flex gap-2 items-center text-[20px]">
-          <Avatar src={card?.src} />
-          <span className="font-bold">{card?.name}</span>
+      <div className="flex justify-between flex-col">
+        <div className="text-[28px] text-primary font-extrabold">
+          {card?.title}
         </div>
+        <ul className="text-[15px] mt-4 flex flex-col gap-1">
+          {Object.entries(card?.details || {}).map(([key, value]) => (
+            <li key={key} className="flex gap-2 items-center">
+              <Icon
+                icon={IconMap[key].icon}
+                className="text-secondary"
+                fontSize={20}
+              />
+              <Tooltip
+                placement="right"
+                delay={1000}
+                color="secondary"
+                content={IconMap[key].tooltip}
+                showArrow
+              >
+                <span>{value}</span>
+              </Tooltip>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-8 flex gap-2 items-center text-[20px]">
+        <span className="font-bold">{card?.institution}</span>
       </div>
     </div>
   );
 };
 
-type CardType = {
-  id: number;
-  title: string;
-  description: string;
-  name: string;
+const IconMap: Record<string, Record<string, string>> = {
+  cgpa: {
+    icon: "solar:star-circle-bold",
+    tooltip: "CGPA",
+  },
+  startTime: {
+    icon: "solar:calendar-add-bold",
+    tooltip: "Start Time",
+  },
+  endTime: {
+    icon: "solar:calendar-mark-bold",
+    tooltip: "End Time",
+  },
+  duration: {
+    icon: "solar:sort-by-time-bold",
+    tooltip: "Duration",
+  },
+  location: {
+    icon: "solar:map-point-bold",
+    tooltip: "Location",
+  },
+  board: {
+    icon: "solar:book-bookmark-bold",
+    tooltip: "Board",
+  },
 };
 
-const cards: CardType[] = [
+type EducationType = {
+  _id: string;
+  title: string;
+  description?: string;
+  institution?: string;
+  details?: {
+    cgpa?: string;
+    startTime?: string;
+    endTime?: string;
+    duration?: string;
+    location?: string;
+    board?: string;
+  };
+};
+
+const education: EducationType[] = [
   {
-    id: 1,
-    title: "Great Services!",
-    description:
-      "Working with Divinely Developer (Bhuneshvar) was a fantastic experience. Bhuneshvar understood our vision perfectly and turned it into a stunning and functional website that truly represents our clinic. His professionalism and expertise were evident throughout the project. We highly recommend him to anyone in need of a skilled developer.",
-    name: "Shailung Polyclinic",
+    _id: "1",
+    title: "Xth",
+    institution: "Adarsh Sr. Sec. School",
+    details: {
+      cgpa: "8.4",
+      startTime: "April, 2018",
+      endTime: "March, 2019",
+      duration: "1 year",
+      location: "Jhajjar, Haryana",
+      board: "CBSE",
+    },
   },
   {
-    id: 2,
-    title: "Good Quality work!",
-    description:
-      "We're very pleased with the website Bhuneshvar developed. The design is modern, aligns perfectly with our brand, and is easy to navigate. Bhuneshvar quickly understood our needs and delivered exactly what we wanted. Since launch, we've seen increased engagement and positive feedback. Highly recommended!",
-    name: "BRO Audio",
+    _id: "2",
+    title: "XIIth",
+    institution: "Adarsh Sr. Sec. School",
+    details: {
+      cgpa: "8.1",
+      startTime: "April, 2020",
+      endTime: "March, 2021",
+      duration: "1 year",
+      location: "Jhajjar, Haryana",
+      board: "CBSE",
+    },
   },
   {
-    id: 3,
-    title: "Top Notch!",
-    description:
-      "As a startup, we needed a developer who could not only bring our vision to life but also guide us with valuable insights. Bhuneshvar exceeded our expectations in every way. He provided exceptional web development services and helped us create a platform that our users love. We highly recommend Bhuneshvar to anyone looking to enhance their online presence.",
-    name: "FOD Living",
+    _id: "3",
+    title: "B.Tech",
+    institution: "Lovely Professional University",
+    details: {
+      startTime: "August, 2022",
+      endTime: "July, 2026",
+      duration: "4 years",
+      location: "Phagwara, Punjab",
+    },
   },
   {
-    id: 4,
-    title: "So Expert!",
-    description:
-      "As a growing institution, we needed a developer who could bring our vision to life and provide valuable guidance along the way. Bhuneshvar exceeded our expectations in every aspect. He delivered top-notch web development services and helped us create a user-friendly platform that our students and staff love. We highly recommend Bhuneshvar to anyone looking to enhance their online presence.",
-    name: "Halahi",
+    _id: "4",
+    title: "Freelancing",
+    details: {
+      startTime: "April 2024",
+      endTime: "Present",
+      location: "Remote (Part-time)",
+    },
   },
 ];
