@@ -3,7 +3,6 @@ import React from "react";
 import Marquee from "../magicui/marquee";
 import WorkButton from "../animata/button/work-button";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 const Contact = () => {
   const router = useRouter();
