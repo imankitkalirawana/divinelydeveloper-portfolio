@@ -31,7 +31,7 @@ const HowIWork = () => {
         <div className="md:sticky top-0 flex flex-col md:flex-row md:h-screen items-start justify-end pb-8 md:overflow-hidden">
           <div className="md:text-[90px] text-[50px] leading-[50px] mb-24 md:mb-0 md:absolute top-[50%] md:translate-y-[-50%] left-0 md:leading-[90px] text-center md:text-start">
             <div className="relative font-extrabold">
-              <span>How I</span>
+              <span>My Skills</span>
               <img
                 src="/sparkle.svg"
                 width={70}
@@ -39,18 +39,19 @@ const HowIWork = () => {
               />
             </div>
             <div className="flex w-full justify-center md:justify-start relative gap-2">
-              <span className="font-extrabold italic font-pp-migra text-secondary -rotate-12 block">
-                Work?
+              <span className="font-extrabold italic font-pp-migra text-secondary -rotate-[9deg] block">
+                Roadmap?
               </span>
               <img
                 src="/sparkle-filled.svg"
                 width={70}
-                className="absolute left-[60%] top-[0%] -rotate-6"
+                className="absolute left-[90%] top-[0%] -rotate-6"
               />
             </div>
             <p className="md:text-base text-2xl md:max-w-96 mt-8 text-start ">
-              I prioritize clear communication and transparent processes to
-              deliver web solutions that exceed expectations.
+              I believe in a structured and goal-oriented approach to mastering
+              skills, creating impactful projects, and building a strong
+              foundation for professional growth.
             </p>
           </div>
 
@@ -110,57 +111,57 @@ const cards: CardType[] = [
   {
     title: (
       <div>
-        Strategy <br />
+        Self <br />
         <span className="text-primary font-extrabold italic font-pp-migra">
-          Session
+          Assessment
         </span>
       </div>
     ),
     id: 1,
     description:
-      "Understanding the client's business, goals, and challenges is key to building strong relationships.",
+      "Reflecting on my skills, strengths, and areas for growth to align with the role and company I aim to join.",
   },
   {
     title: (
       <div>
-        Strategic
+        Skill
         <br />
         <span className="text-primary font-extrabold italic font-pp-migra">
-          Brainstorming
+          Exploration
         </span>
       </div>
     ),
     id: 2,
     description:
-      "Assemble ideas and design the initial product concept, making the process both critical and engaging.",
+      "Researching and enhancing technical and problem-solving skills to meet industry demands and expectations.",
   },
   {
     title: (
       <div>
-        Establishing
+        Planning and
         <br />
         <span className="text-primary font-extrabold italic font-pp-migra">
-          a Timeline
+          Preparation
         </span>
       </div>
     ),
     id: 3,
     description:
-      "After evaluating the brief and details, we'll share an estimated timeline for the project's completion.",
+      "Setting clear goals and creating a structured timeline for building projects, preparing for interviews, and networking.",
   },
   {
     title: (
       <div>
-        Start
+        Project
         <br />
         <span className="text-primary font-extrabold italic font-pp-migra">
-          Developing
+          Execution
         </span>
       </div>
     ),
     id: 4,
     description:
-      "We begin visualizing the design based on our ideas and brainstorming, following the established timeline.",
+      "Developing impactful and well-documented projects that showcase my technical expertise and creativity.",
   },
   {
     title: (
@@ -168,27 +169,27 @@ const cards: CardType[] = [
         Feedback
         <br />
         <span className="text-primary font-extrabold italic font-pp-migra">
-          Loop!
+          Integration!
         </span>
       </div>
     ),
     id: 5,
     description:
-      "Your feedback and insights during the process are welcome, as collaboration is crucial to our success.",
+      "Actively seeking and incorporating constructive feedback to refine my skills and projects.",
   },
   {
     title: (
       <div>
-        Task
+        Job
         <br />
         <span className="text-primary font-extrabold italic font-pp-migra">
-          Accomplished!
+          Ready!
         </span>
       </div>
     ),
     id: 6,
     description:
-      "We'll ensure everything is finished and deliver exceptional results tailored to you and your company!",
+      "With refined skills, real-world projects, and a proactive attitude, I am ready to contribute and grow with a dynamic team!",
   },
 ];
 

@@ -18,6 +18,7 @@ import {
 } from "@nextui-org/react";
 import ImagePlaceholder from "../ui/image-placeholder";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Props {
   projects: ProjectType[];
@@ -62,7 +63,7 @@ function Projects({ projects }: Props) {
   const y = useTransform(
     scrollYProgress,
     [0, 2],
-    [isMobile ? "60%" : "90%", "-90%"],
+    [isMobile ? "20%" : "90%", "-90%"],
   );
   const backdrop = useTransform(
     scrollYProgress,
@@ -86,8 +87,8 @@ function Projects({ projects }: Props) {
               My Great
             </div>
             <Marquee pauseOnHover={false} className="[--duration:20s]">
-              <div className="md:text-[200px] md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-extrabold italic font-pp-migra text-primary after:text-secondary">
-                WORK
+              <div className="md:text-[200px] uppercase md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-extrabold italic font-pp-migra text-primary after:text-secondary">
+                PROJECTS
               </div>
             </Marquee>
           </motion.div>
@@ -95,7 +96,7 @@ function Projects({ projects }: Props) {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
 
           <motion.div
-            className="mt-12 grid max-w-[96rem] px-4 md:px-8 lg:px-12 mx-auto w-full gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            className="mt-12 grid max-w-[96rem] px-4 md:px-8 lg:px-12 mx-auto w-full gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"
             style={{ y }}
           >
             {projects.slice(0, 12).map((project, index) => (
@@ -111,12 +112,15 @@ function Projects({ projects }: Props) {
 const ProjectCard = ({ project }: { project: ProjectType }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const router = useRouter();
 
   return (
     <Card
       className="backdrop-blur-md hover:bg-default-200/30"
-      as={Link}
-      href={`/work/${project.slug}`}
+      isPressable
+      onPress={() => {
+        router.push(`/work/${project.slug}`);
+      }}
     >
       <CardBody className="gap-2">
         <div className="w-full">

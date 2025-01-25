@@ -5,18 +5,21 @@ const Commitment = () => {
   return (
     <>
       <section className="relative mt-36">
-        <video
+        {/* <video
           src={"/project-6.mp4"}
           autoPlay
           loop
           muted
-          className="object-cover w-[100%] pointer-events-none"
+          className="object-cover hidden w-[100%] pointer-events-none"
           playsInline
-        />
+        /> */}
         <h3 className="font-pp-neue-machina text-[28px] md:text-[34px] px-8 md:px-24 mt-12">
-          Driven by a passion for excellence and a commitment to innovation, I
-          deliver customized web solutions while fostering strong partnerships
-          with clients across diverse industries.
+          A web developer with expertise in Next.js and proficient in React,
+          Node.js, TypeScript, MongoDB, and modern UI design frameworks such as
+          Tailwind, NextUI and Shadcn UI. Adept at developing scalable web
+          solutions and dynamic, user-focused online applications. Successfully
+          completed projects with a focus on seamless functionality, user
+          interaction, and performance optimization.
         </h3>
       </section>
     </>

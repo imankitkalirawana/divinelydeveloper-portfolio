@@ -60,3 +60,9 @@ export interface ChatHistory {
   role: "user" | "model" | "system";
   parts: { text: string }[];
 }
+
+export interface Skill extends Base {
+  name: string;
+  description?: string;
+  url?: string;
+}

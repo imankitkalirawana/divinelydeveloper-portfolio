@@ -5,12 +5,12 @@ import Commitment from "@/components/sections/commit";
 import Contact from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
 import HowIWork from "@/components/sections/how-i-work";
-import MovingText from "@/components/sections/moving-text";
 import Showreel from "@/components/sections/showreel";
 import WhatIDo from "@/components/sections/what-i-do";
 import SmoothScroll from "@/components/smooth-scroll";
 import ProjectProvider from "@/components/sections/projects";
 import TestimonialProvider from "@/components/sections/testimonial";
+import Skills from "@/components/sections/skills";
 
 export default function Home() {
   return (
@@ -23,9 +23,9 @@ export default function Home() {
             <Showreel />
           </div>
           <WhatIDo />
-          <ProjectProvider />
           <Commitment />
-          <MovingText />
+          <ProjectProvider />
+          <Skills />
           <HowIWork />
           <TestimonialProvider />
           <Contact />

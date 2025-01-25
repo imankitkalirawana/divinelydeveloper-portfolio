@@ -27,11 +27,11 @@ const statusColorMap = {
 };
 
 export default function Project({ project }: Props) {
-  let totalDays = calculateDays(project.startdate, project.enddate);
-  let daysPassed = calculateDays(project.startdate, new Date().toISOString());
-  if (project.status === "completed") {
+  let totalDays = calculateDays(project?.startdate, project?.enddate);
+  let daysPassed = calculateDays(project?.startdate, new Date().toISOString());
+  if (project?.status === "completed") {
     daysPassed = totalDays;
-  } else if (project.status === "on-hold") {
+  } else if (project?.status === "on-hold") {
     daysPassed = 13;
   }
 
@@ -45,22 +45,24 @@ export default function Project({ project }: Props) {
         className="max-w-7xl  mx-auto p-4 sm:p-8 md:p-12"
       >
         <div className="flex flex-col">
-          <h1 className="text-4xl flex items-center gap-4 font-extrabold sm:text-5xl md:text-6xl">
-            {project.title}
+          <h1 className="text-[clamp(1rem,7vw,11.5rem)] font-pp-migra italic text-secondary leading-none flex justify-center items-center gap-4 font-extrabold">
+            {project?.title}
           </h1>
-          <p className=" text-default-600 text-xl sm:text-2xl mt-8">
-            {project.tagline}
+          <p className=" text-default-600 text-center text-[clamp(1rem,1.5vw,2rem)] mt-8">
+            {project?.tagline}
           </p>
         </div>
         <Divider className="bg-default-500 my-12" />
         <div className="flex justify-between gap-12 flex-col sm:flex-row">
           <div className="sm:w-1/2 sm:mr-[10%]">
             <div className="mb-12">
-              <h3>Overview</h3>
-              <p className="text-default-600 mt-4">{project.description}</p>
+              <h3 className="text-lg">Overview</h3>
+              <p className="text-default-600 mt-4 text-justify">
+                {project?.description}
+              </p>
             </div>
             <div className="flex gap-4">
-              {project.github && (
+              {project?.github && (
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -77,7 +79,7 @@ export default function Project({ project }: Props) {
                     size="lg"
                     color="primary"
                     variant="flat"
-                    href={`${project.github}`}
+                    href={`${project?.github}`}
                     endContent={
                       <Icon icon="tabler:arrow-up-right" fontSize={20} />
                     }
@@ -87,7 +89,7 @@ export default function Project({ project }: Props) {
                   </Button>
                 </motion.div>
               )}
-              {project.previewlink && (
+              {project?.previewlink && (
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -101,10 +103,10 @@ export default function Project({ project }: Props) {
                 >
                   <Button
                     as={Link}
-                    variant={project.github ? "bordered" : "flat"}
-                    color={project.github ? "default" : "primary"}
+                    variant={project?.github ? "bordered" : "flat"}
+                    color={project?.github ? "default" : "primary"}
                     size="lg"
-                    href={`${project.previewlink}`}
+                    href={`${project?.previewlink}`}
                     endContent={
                       <Icon icon="tabler:arrow-up-right" fontSize={20} />
                     }
@@ -117,7 +119,7 @@ export default function Project({ project }: Props) {
             </div>
           </div>
           <div className="sm:p-16 flex flex-col gap-12 pt-0">
-            {project.role && (
+            {project?.role && (
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -125,7 +127,7 @@ export default function Project({ project }: Props) {
                 viewport={{ once: isOnce }}
               >
                 <h4>ROLE</h4>
-                <p className="text-default-600">{project.role}</p>
+                <p className="text-default-600">{project?.role}</p>
               </motion.div>
             )}
 
@@ -142,7 +144,7 @@ export default function Project({ project }: Props) {
             >
               <h4>TECHNOLOGIES</h4>
               <p className="text-default-600">
-                {project.technologies
+                {project?.technologies
                   .map((tech) => {
                     const parts = tech.split("-").pop() || "";
                     return parts.charAt(0).toUpperCase() + parts.slice(1);
@@ -150,7 +152,7 @@ export default function Project({ project }: Props) {
                   .join(", ")}
               </p>
             </motion.div>
-            {project.client && (
+            {project?.client && (
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -163,13 +165,13 @@ export default function Project({ project }: Props) {
                 viewport={{ once: isOnce }}
               >
                 <h4>CLIENT</h4>
-                <p className="text-default-600">{project.client}</p>
+                <p className="text-default-600">{project?.client}</p>
               </motion.div>
             )}
 
-            {(project.status === "in-progress" ||
-              project.status === "completed" ||
-              project.status === "on-hold") && (
+            {(project?.status === "in-progress" ||
+              project?.status === "completed" ||
+              project?.status === "on-hold") && (
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -183,10 +185,10 @@ export default function Project({ project }: Props) {
               >
                 <h4>TIMELINE</h4>
                 <p className="text-default-600">
-                  {humanReadableDate(project.startdate)}
-                  {project.status === "completed"
-                    ? ` - ${humanReadableDate(project.enddate)}`
-                    : project.status === "in-progress"
+                  {humanReadableDate(project?.startdate)}
+                  {project?.status === "completed"
+                    ? ` - ${humanReadableDate(project?.enddate)}`
+                    : project?.status === "in-progress"
                       ? " - Present"
                       : " - On Hold"}
                 </p>
@@ -211,7 +213,7 @@ export default function Project({ project }: Props) {
                     value={Math.floor((daysPassed / totalDays) * 100)}
                     maxValue={100}
                     color={
-                      project.status === "completed" ? "success" : "warning"
+                      project?.status === "completed" ? "success" : "warning"
                     }
                     showValueLabel={true}
                     className="max-w-96"
@@ -228,7 +230,7 @@ export default function Project({ project }: Props) {
         transition={{ duration: 0.7, delay: 0.5 }}
         viewport={{ once: isOnce }}
       >
-        <Thumbnail src={project.thumbnail.src} />
+        <Thumbnail src={project?.thumbnail.src} />
       </motion.div>
     </>
   );
