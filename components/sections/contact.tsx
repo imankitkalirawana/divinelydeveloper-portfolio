@@ -11,15 +11,17 @@ const Contact = () => {
     <>
       <Marquee pauseOnHover={false} className="[--duration:20s] mt-48">
         <div className="text-[100px] font-extrabold leading-[100px] md:text-[200px] md:leading-[200px] after:content-['•'] after:text-[80px] gap-4 flex items-center uppercase after:text-secondary">
-          Have a <span className="text-primary  italic mr-4">great</span>{" "}
-          project?
+          Looking to{" "}
+          <span className="text-primary font-pp-migra italic mr-4">
+            collaborate?
+          </span>{" "}
         </div>
       </Marquee>
       <div className="flex flex-col md:flex-row mb-4 justify-between items-center max-w-7xl mx-auto p-8">
-        <p className="text-xl self-start md:text-[18px] md:max-w-[50%]">
-          Have a project in mind?
+        <p className="text-[15px] sm:text-xl self-start md:text-[18px] md:max-w-[50%]">
+          Got an idea to bring to life?
           <br />
-          Let&apos;s work together!
+          Let&apos;s create something amazing together!
         </p>
         <Link href={"/contact"}>
           <WorkButton className="w-full mt-4 md:w-fit" />

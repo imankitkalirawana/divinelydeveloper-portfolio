@@ -35,6 +35,7 @@ export default function ChatbotPopup() {
         as={Link}
         size="lg"
         href="/chatbot"
+        className="backdrop-blur-md"
       >
         <Icon icon="lets-icons:chat-fill" width="24" height="24" />
       </Button>

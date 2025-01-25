@@ -31,7 +31,7 @@ const Card = ({ stat }: { stat: StatType }) => {
 };
 
 interface StatType {
-  title: React.ReactNode;
+  title: React.ReactNode; // can also use escape sequence instead of this
   value: string;
 }
 
@@ -39,20 +39,20 @@ const stats: StatType[] = [
   {
     title: (
       <>
-        Completed <br />
-        Projects
+        Leetcode <br />
+        Solved
       </>
     ),
-    value: "50",
+    value: "60",
   },
   {
     title: (
       <>
-        Great <br />
-        Clients
+        Realtime <br />
+        Projects
       </>
     ),
-    value: "10",
+    value: "8",
   },
   {
     title: (
@@ -61,7 +61,7 @@ const stats: StatType[] = [
         Experience
       </>
     ),
-    value: "3",
+    value: new Date().getFullYear() - 2021 + "",
   },
 ];
 

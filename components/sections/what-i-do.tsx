@@ -171,7 +171,7 @@ const cards: CardType[] = [
     id: 2,
     icon: "lucide:shapes",
     description:
-      "Website Design? User Interface Design? User Experience Design? I love doing that for you.",
+      "Website Design? User Interface Design? User Experience Design? I love doing that.",
   },
   {
     url: "/work-4.svg",
