@@ -4,39 +4,22 @@ import Grid from "../animata/background/grid";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useInView } from "react-hook-inview";
-import { Testimonial as TestimonialInterface } from "@/lib/interface";
-import { Avatar, Tooltip } from "@nextui-org/react";
-import { isCaching } from "@/lib/config";
+import { Tooltip } from "@nextui-org/react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface Props {
   education: EducationType[];
 }
 
-export default function TestimonialProvider() {
-  const [testimonials, setTestimonials] = useState<TestimonialInterface[]>([]);
-
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      const res = await fetch(`/api/testimonials`, {
-        cache: isCaching ? "default" : "no-cache",
-      });
-      if (res.ok) {
-        const testimonials = await res.json();
-        setTestimonials(testimonials);
-      }
-    };
-    fetchTestimonials();
-  }, []);
-
+export default function EducationProvider() {
   return (
     <>
-      <Testimonial education={education} />
+      <Education education={education} />
     </>
   );
 }
 
-const Testimonial = ({ education }: Props) => {
+const Education = ({ education }: Props) => {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
 
@@ -52,9 +35,9 @@ const Testimonial = ({ education }: Props) => {
         size={100}
         className="mt-36 pt-20 pb-24 px-4 overflow-hidden md:px-12"
       >
-        <div className="text-[50px] font-extrabold leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[80px] text-center">
+        <div className="text-[50px] text-secondary font-extrabold leading-[50px] md:text-[90px] flex flex-col items-center md:leading-[80px] text-center">
           <div>Experience</div>
-          <span className="font-extrabold italic font-pp-migra text-secondary -rotate-[20deg] block">
+          <span className="font-extrabold italic text-white font-pp-migra -rotate-[20deg] block">
             &
           </span>
           <div className="flex gap-2">
@@ -173,9 +156,7 @@ const Card = ({
       )}
     >
       <div className="flex justify-between flex-col">
-        <div className="text-[28px] text-primary font-extrabold">
-          {card?.title}
-        </div>
+        <div className="text-[28px] font-extrabold">{card?.title}</div>
         <ul className="text-[15px] mt-4 flex flex-col gap-1">
           {Object.entries(card?.details || {}).map(([key, value]) => (
             <li key={key} className="flex gap-2 items-center">

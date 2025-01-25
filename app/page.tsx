@@ -9,8 +9,8 @@ import Showreel from "@/components/sections/showreel";
 import WhatIDo from "@/components/sections/what-i-do";
 import SmoothScroll from "@/components/smooth-scroll";
 import ProjectProvider from "@/components/sections/projects";
-import TestimonialProvider from "@/components/sections/testimonial";
 import Skills from "@/components/sections/skills";
+import EducationProvider from "@/components/sections/education";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
           <ProjectProvider />
           <Skills />
           <HowIWork />
-          <TestimonialProvider />
+          <EducationProvider />
           <Contact />
           <div className="max-w-7xl mx-auto px-8">
             <Footer />
