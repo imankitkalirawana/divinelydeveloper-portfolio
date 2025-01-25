@@ -17,15 +17,20 @@ const Contact = () => {
           </span>{" "}
         </div>
       </Marquee>
-      <div className="flex flex-col md:flex-row mb-4 justify-between items-center max-w-7xl mx-auto p-8">
+      <div className="flex flex-col md:flex-row mb-4 gap-2 justify-between items-center max-w-7xl mx-auto p-8">
         <p className="text-[15px] sm:text-xl self-start md:text-[18px] md:max-w-[50%]">
           Got an idea to bring to life?
           <br />
           Let&apos;s create something amazing together!
         </p>
-        <Link href={"/contact"}>
-          <WorkButton className="w-full mt-4 md:w-fit" />
-        </Link>
+        <WorkButton
+          onClick={() => {
+            router.push("/contact");
+          }}
+          className="w-full mt-4 md:w-fit"
+        >
+          Let&apos;s Talk
+        </WorkButton>
       </div>
       <hr className="border-default my-4 border-1 max-w-7xl mx-auto px-8" />
     </>
