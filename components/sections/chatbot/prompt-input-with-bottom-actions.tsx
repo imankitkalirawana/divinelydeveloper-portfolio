@@ -62,11 +62,8 @@ export default function Component() {
   };
 
   return (
-    <div className="flex w-full fixed px-4 bottom-10 left-1/2 -translate-x-1/2 mx-auto max-w-5xl flex-col gap-4">
-      <p className="px-2 text-tiny text-default-500">
-        This bot can make mistakes. Consider checking important information.
-      </p>
-      <form className="flex w-full flex-col items-start rounded-medium bg-default-100 transition-colors hover:bg-default-200/70">
+    <div className="flex w-full fixed max-h-24 px-4 bottom-20 -translate-x-1/2 left-1/2 mx-auto max-w-5xl flex-col gap-4">
+      <form className="flex w-full flex-col items-start rounded-medium bg-default-100/80 transition-colors hover:bg-default-200/70 backdrop-blur-lg">
         <PromptInput
           classNames={{
             inputWrapper: "!bg-transparent shadow-none",
@@ -80,7 +77,7 @@ export default function Component() {
                 <Button
                   isIconOnly
                   color={!prompt ? "default" : "primary"}
-                  isDisabled={!prompt}
+                  isDisabled={!prompt || isLoading}
                   radius="lg"
                   size="sm"
                   variant="solid"
@@ -105,6 +102,9 @@ export default function Component() {
           onValueChange={setPrompt}
         />
       </form>
+      <p className="px-2 text-tiny text-default-600">
+        This bot can make mistakes. Consider checking important information.
+      </p>
     </div>
   );
 }

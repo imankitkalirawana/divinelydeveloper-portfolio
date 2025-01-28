@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
 import MessageCard from "./message-card";
@@ -7,6 +7,15 @@ import { ChatHistory } from "@/lib/interface";
 
 export default function Conversation() {
   const history: ChatHistory[] = useSelector((state: any) => state.chat);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [history]);
 
   return (
     <div className="flex flex-col gap-4 px-1">
@@ -34,6 +43,7 @@ export default function Conversation() {
             />
           ),
       )}
+      <div ref={messagesEndRef} />
     </div>
   );
 }

@@ -7,6 +7,7 @@ export const POST = auth(async function POST(request: any) {
     const { message } = await request.json();
 
     const response = await generateResponse(message);
+    console.debug(response);
     return NextResponse.json({ response });
   } catch (error) {
     console.error(error);

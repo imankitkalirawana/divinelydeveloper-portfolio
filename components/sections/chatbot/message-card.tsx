@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Avatar, Badge, Button, Link, Tooltip } from "@nextui-org/react";
-import { useClipboard } from "@nextui-org/use-clipboard";
+import { Avatar, Badge } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { cn } from "@nextui-org/react";
 import ReactMarkdown from "react-markdown";
@@ -40,74 +39,7 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
     },
     ref,
   ) => {
-    const [feedback, setFeedback] = React.useState<"like" | "dislike">();
-    const [attemptFeedback, setAttemptFeedback] = React.useState<
-      "like" | "dislike" | "same"
-    >();
-
     const messageRef = React.useRef<HTMLDivElement>(null);
-
-    const { copied, copy } = useClipboard();
-
-    const failedMessageClassName =
-      status === "failed"
-        ? "bg-danger-100/50 border border-danger-100 text-foreground"
-        : "";
-    const failedMessage = (
-      <p>
-        Something went wrong, if the issue persists please contact us through
-        our help center at&nbsp;
-        <Link href="mailto:support@acmeai.com" size="sm">
-          support@acmeai.com
-        </Link>
-      </p>
-    );
-
-    const hasFailed = status === "failed";
-
-    const handleCopy = React.useCallback(() => {
-      let stringValue = "";
-
-      if (typeof message === "string") {
-        stringValue = message;
-      } else if (Array.isArray(message)) {
-        message.forEach((child) => {
-          // @ts-ignore
-          const childString =
-            typeof child === "string"
-              ? child
-              : child?.props?.children?.toString();
-
-          if (childString) {
-            stringValue += childString + "\n";
-          }
-        });
-      }
-
-      const valueToCopy = stringValue || messageRef.current?.textContent || "";
-
-      copy(valueToCopy);
-
-      onMessageCopy?.(valueToCopy);
-    }, [copy, message, onMessageCopy]);
-
-    const handleFeedback = React.useCallback(
-      (liked: boolean) => {
-        setFeedback(liked ? "like" : "dislike");
-
-        onFeedback?.(liked ? "like" : "dislike");
-      },
-      [onFeedback],
-    );
-
-    const handleAttemptFeedback = React.useCallback(
-      (feedback: "like" | "dislike" | "same") => {
-        setAttemptFeedback(feedback);
-
-        onAttemptFeedback?.(feedback);
-      },
-      [onAttemptFeedback],
-    );
 
     return (
       <div
@@ -125,9 +57,9 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
                 icon="gravity-ui:circle-exclamation-fill"
               />
             }
-            isInvisible={!hasFailed}
             placement="bottom-right"
             shape="circle"
+            isInvisible
           >
             <Avatar src={avatar} />
           </Badge>
@@ -136,12 +68,23 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
           <div
             className={cn(
               "relative w-full rounded-medium bg-content2 px-4 py-3 text-default-600",
-              failedMessageClassName,
-              messageClassName,
             )}
           >
             <div ref={messageRef} className={"text-small"}>
-              <ReactMarkdown>{message as string}</ReactMarkdown>
+              <ReactMarkdown
+                components={{
+                  a: ({ node, ...props }) => (
+                    <a
+                      {...props}
+                      className="text-primary underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    />
+                  ),
+                }}
+              >
+                {message as string}
+              </ReactMarkdown>
             </div>
           </div>
         </div>
