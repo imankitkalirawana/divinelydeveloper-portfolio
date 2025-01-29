@@ -170,9 +170,10 @@ const Banner = () => {
               delay: 0.4,
             }}
             viewport={{ once: isOnce }}
-            className="animate-rocket"
           >
-            <Icon icon="noto:rocket" />
+            <div className="flex rotate-45 translate-x-[100px] translate-y-[-100px]">
+              <Icon icon="noto:rocket" className="animate-rocket" />
+            </div>
           </motion.div>
           <motion.img
             src="/holographic-wire.svg"
