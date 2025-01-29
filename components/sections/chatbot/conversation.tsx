@@ -40,6 +40,7 @@ export default function Conversation() {
                 role === "user" ? "bg-content3 text-content3-foreground" : ""
               }
               showFeedback={role === "model"}
+              role={role}
             />
           ),
       )}

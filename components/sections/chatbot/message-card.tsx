@@ -18,6 +18,7 @@ export type MessageCardProps = React.HTMLAttributes<HTMLDivElement> & {
   onMessageCopy?: (content: string | string[]) => void;
   onFeedback?: (feedback: "like" | "dislike") => void;
   onAttemptFeedback?: (feedback: "like" | "dislike" | "same") => void;
+  role?: "user" | "model" | "system";
 };
 
 const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
@@ -35,6 +36,7 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
       onAttemptFeedback,
       className,
       messageClassName,
+      role,
       ...props
     },
     ref,
@@ -80,6 +82,12 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
                       target="_blank"
                       rel="noopener noreferrer"
                     />
+                  ),
+                  strong: ({ node, ...props }) => (
+                    <strong {...props} className="text-default-800" />
+                  ),
+                  p: ({ node, ...props }) => (
+                    <p {...props} className={role === "model" ? "mb-2" : ""} />
                   ),
                 }}
               >

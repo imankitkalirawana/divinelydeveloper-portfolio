@@ -15,7 +15,7 @@ const Banner = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const [ref, inView] = useInView();
+  const [ref] = useInView();
 
   const [isOnce] = useState(true);
 
@@ -23,7 +23,7 @@ const Banner = () => {
     <>
       <div
         ref={ref}
-        className="flex flex-col font-extrabold mt-24 md:mt-0 justify-between items-start md:items-center md:pb-52 pb-24 text-[70px] leading-[70px] md:text-[110px] md:leading-[110px]"
+        className="flex flex-col font-extrabold mt-24 md:mt-0 justify-between items-center md:items-center md:pb-52 pb-24 text-[70px] leading-[70px] md:text-[110px] md:leading-[110px]"
       >
         <div className="mt-12 relative">
           <motion.img

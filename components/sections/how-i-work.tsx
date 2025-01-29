@@ -45,7 +45,7 @@ const HowIWork = () => {
               <img
                 src="/sparkle-filled.svg"
                 width={70}
-                className="absolute left-[90%] top-[0%] -rotate-6"
+                className="absolute left-[80%] top-[0%] -rotate-6"
               />
             </div>
             <p className="md:text-base text-2xl md:max-w-96 mt-8 text-start ">

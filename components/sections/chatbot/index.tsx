@@ -6,7 +6,7 @@ const Chatbot = () => {
   return (
     <div
       className={cn(
-        "flex relative max-w-5xl mx-auto h-full w-full flex-col gap-8",
+        "flex relative overflow-y-scroll max-w-5xl mx-auto h-full w-full flex-col gap-8",
       )}
     >
       <ScrollShadow className={cn("flex pb-60 h-full flex-col")}>
