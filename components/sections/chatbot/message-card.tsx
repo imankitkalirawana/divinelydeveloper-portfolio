@@ -76,13 +76,16 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
                       />
                     ),
                     strong: ({ node, ...props }) => (
-                      <strong {...props} className="text-default-800" />
+                      <strong {...props} className="text-default-700" />
                     ),
                     p: ({ node, ...props }) => (
                       <p
                         {...props}
                         className={role === "model" ? "mb-2" : ""}
                       />
+                    ),
+                    ul: ({ node, ...props }) => (
+                      <ul {...props} className={"list-disc list-inside pl-2"} />
                     ),
                   }}
                 >
