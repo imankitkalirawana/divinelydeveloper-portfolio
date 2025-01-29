@@ -35,10 +35,16 @@ const chatHistorySlice = createSlice({
     addMessage: (state, action: PayloadAction<ChatHistory>) => {
       state.push(action.payload);
     },
+    updateLastMessage: (state, action: PayloadAction<{ text: string }>) => {
+      const lastMessage = state[state.length - 1];
+      if (lastMessage && lastMessage.role === "model") {
+        lastMessage.parts[0].text = action.payload.text;
+      }
+    },
     clearChatHistory: () => initialState,
   },
 });
 
-export const { addMessage, clearChatHistory } = chatHistorySlice.actions;
-
+export const { addMessage, updateLastMessage, clearChatHistory } =
+  chatHistorySlice.actions;
 export default chatHistorySlice.reducer;

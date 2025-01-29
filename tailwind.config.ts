@@ -23,22 +23,15 @@ const config = {
       marquee: "marquee var(--duration) linear infinite",
       "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+      "float-y": "float-y 6s ease-in-out infinite",
+      "float-x": "float-x 6s ease-in-out infinite",
+      "float-xy": "float-xy 6s ease-in-out infinite",
+      sparkle: "sparkle 6s ease-in-out infinite",
+      rocket: "rocket 6s ease-in-out infinite",
     },
     keyframes: {
-      "reveal-up": {
-        "0%": { opacity: "0", transform: "translateY(80%)" },
-        "100%": { opacity: "1", transform: "translateY(0)" },
-      },
-      "reveal-down": {
-        "0%": { opacity: "0", transform: "translateY(-80%)" },
-        "100%": { opacity: "1", transform: "translateY(0)" },
-      },
       ping: {
         "75%, 100%": { transform: "scale(2)", opacity: "0" },
-      },
-      "content-blur": {
-        "0%": { filter: "blur(0.3rem)" },
-        "100%": { filter: "blur(0)" },
       },
       marquee: {
         from: { transform: "translateX(0)" },
@@ -51,6 +44,36 @@ const config = {
       "bg-position": {
         "0%": { backgroundPosition: "0% 50%" },
         "100%": { backgroundPosition: "100% 50%" },
+      },
+      "float-y": {
+        "0%": { transform: "translateY(0)" },
+        "50%": { transform: "translateY(-5%)" },
+        "100%": { transform: "translateY(0)" },
+      },
+      "float-x": {
+        "0%": { transform: "translateX(0)" },
+        "50%": { transform: "translateX(-5%)" },
+        "100%": { transform: "translateX(0)" },
+      },
+      "float-xy": {
+        "0%": { transform: "translate(0, 0)" },
+        "50%": { transform: "translate(-5%, -5%)" },
+        "100%": { transform: "translate(0, 0)" },
+      },
+      sparkle: {
+        "0%": { transform: "scale(1)" },
+        "50%": { transform: "scale(1.5)" },
+        "100%": { transform: "scale(1)" },
+      },
+      rocket: {
+        "0%": { transform: "translateY(1.3em) rotate(-45deg)" },
+        "10%": { transform: "translateY(1.1em) rotate(-45deg)" },
+        "30%": { transform: "translateY(1.2em) rotate(-45deg)" },
+        "50%": { transform: "translateY(1em) rotate(-45deg)" },
+        "70%": { transform: "translateY(1.2em) rotate(-45deg)" },
+        "80%": { transform: "translateY(1em) rotate(-45deg)" },
+        "90%": { transform: "translateY(1.2em) rotate(-45deg)" },
+        "100%": { transform: "translateY(1.3em) rotate(-45deg)" },
       },
     },
   },

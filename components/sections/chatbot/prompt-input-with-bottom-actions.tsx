@@ -7,7 +7,10 @@ import { cn } from "@nextui-org/react";
 
 import PromptInput from "./prompt-input";
 import { useDispatch } from "react-redux";
-import { addMessage } from "@/store/slices/chat-history-slice";
+import {
+  addMessage,
+  updateLastMessage,
+} from "@/store/slices/chat-history-slice";
 
 export default function Component() {
   const dispatch = useDispatch();
@@ -23,6 +26,14 @@ export default function Component() {
     setPrompt("");
     setIsLoading(true);
 
+    // Add a loading placeholder message
+    dispatch(
+      addMessage({
+        role: "model",
+        parts: [{ text: "..." }],
+      }),
+    );
+
     try {
       const response = await fetch("/api/chatbot", {
         method: "POST",
@@ -32,21 +43,11 @@ export default function Component() {
 
       const data = await response.json();
 
-      dispatch(
-        addMessage({
-          role: "model",
-          parts: [{ text: data.response }],
-        }),
-      );
+      dispatch(updateLastMessage({ text: data.response }));
     } catch (error) {
       dispatch(
-        addMessage({
-          role: "model",
-          parts: [
-            {
-              text: "Sorry, I'm having trouble responding right now. Please try again.",
-            },
-          ],
+        updateLastMessage({
+          text: "Sorry, I'm having trouble responding right now. Please try again.",
         }),
       );
     } finally {
@@ -62,8 +63,8 @@ export default function Component() {
   };
 
   return (
-    <div className="flex w-full fixed max-h-24 px-4 bottom-20 -translate-x-1/2 left-1/2 mx-auto max-w-5xl flex-col gap-4">
-      <form className="flex w-full flex-col items-start rounded-medium bg-default-100/80 transition-colors hover:bg-default-200/70 backdrop-blur-lg">
+    <div className="flex w-full mx-auto max-w-5xl flex-col gap-4">
+      <form className="flex w-full flex-col items-start rounded-medium bg-default-100/80 transition-colors hover:bg-default-50/70 backdrop-blur-lg">
         <PromptInput
           classNames={{
             inputWrapper: "!bg-transparent shadow-none",
@@ -102,9 +103,6 @@ export default function Component() {
           onValueChange={setPrompt}
         />
       </form>
-      <p className="px-2 text-tiny text-default-600">
-        This bot can make mistakes. Consider checking important information.
-      </p>
     </div>
   );
 }

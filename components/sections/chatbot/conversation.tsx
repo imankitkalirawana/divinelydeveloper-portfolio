@@ -10,7 +10,10 @@ export default function Conversation() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   useEffect(() => {
@@ -24,7 +27,6 @@ export default function Conversation() {
           role !== "system" && (
             <MessageCard
               key={index}
-              attempts={index === 1 ? 2 : 1}
               avatar={
                 role === "model"
                   ? "/divinelydeveloper.jpg"
@@ -34,16 +36,18 @@ export default function Conversation() {
                     : "https://d2u8k2ocievbld.cloudfront.net/memojis/male/6.png"
               }
               className={role === "user" ? "self-end flex-row-reverse" : ""}
-              currentAttempt={index === 1 ? 2 : 1}
               message={parts[0].text}
               messageClassName={
                 role === "user" ? "bg-content3 text-content3-foreground" : ""
               }
-              showFeedback={role === "model"}
               role={role}
+              isLoading={parts[0].text === "..."}
             />
           ),
       )}
+      <p className="px-2 text-[11px] text-center text-default-600">
+        This bot can make mistakes. Consider checking important information.
+      </p>
       <div ref={messagesEndRef} />
     </div>
   );

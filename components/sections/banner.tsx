@@ -29,7 +29,7 @@ const Banner = () => {
           <motion.img
             src="/sparkle-filled.svg"
             width={70}
-            className="absolute left-[60%] translate-x-[-50%] top-[-45%]"
+            className="absolute animate-sparkle left-[60%] translate-x-[-50%] top-[-45%]"
             initial="hidden"
             whileInView="visible"
             variants={{
@@ -43,7 +43,7 @@ const Banner = () => {
             initial={{ opacity: 0, y: 50, scale: 0.5 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, type: "spring", stiffness: 100 }}
-            className="text-lg italic font-pp-migra"
+            className="text-xl italic font-pp-migra"
           >
             I CAN
           </motion.div>
@@ -127,7 +127,7 @@ const Banner = () => {
           <motion.img
             src="/sparkle.svg"
             width={70}
-            className="absolute left-[-30%] translate-x-[-50%] top-[-150%]"
+            className="absolute left-[-30%] animate-sparkle translate-x-[-50%] top-[-150%]"
             alt=""
             initial="hidden"
             whileInView="visible"
@@ -170,6 +170,7 @@ const Banner = () => {
               delay: 0.4,
             }}
             viewport={{ once: isOnce }}
+            className="animate-rocket"
           >
             <Icon icon="noto:rocket" />
           </motion.div>
@@ -178,7 +179,7 @@ const Banner = () => {
             alt="holographic-wire"
             width={200}
             height={200}
-            className="absolute left-[-50%] mix-blend-lighten top-0 select-none"
+            className="absolute animate-float-y left-[-50%] mix-blend-lighten top-0 select-none"
             initial="hidden"
             whileInView="visible"
             variants={{

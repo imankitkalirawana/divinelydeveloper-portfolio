@@ -1,24 +1,17 @@
 "use client";
 
 import React from "react";
-import { Avatar, Badge } from "@nextui-org/react";
+import { Avatar, Badge, Spinner } from "@nextui-org/react";
 import { Icon } from "@iconify/react";
 import { cn } from "@nextui-org/react";
 import ReactMarkdown from "react-markdown";
 
 export type MessageCardProps = React.HTMLAttributes<HTMLDivElement> & {
   avatar?: string;
-  showFeedback?: boolean;
   message?: React.ReactNode;
-  currentAttempt?: number;
-  status?: "success" | "failed";
-  attempts?: number;
   messageClassName?: string;
-  onAttemptChange?: (attempt: number) => void;
-  onMessageCopy?: (content: string | string[]) => void;
-  onFeedback?: (feedback: "like" | "dislike") => void;
-  onAttemptFeedback?: (feedback: "like" | "dislike" | "same") => void;
   role?: "user" | "model" | "system";
+  isLoading?: boolean;
 };
 
 const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
@@ -26,17 +19,10 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
     {
       avatar,
       message,
-      showFeedback,
-      attempts = 1,
-      currentAttempt = 1,
-      status,
-      onMessageCopy,
-      onAttemptChange,
-      onFeedback,
-      onAttemptFeedback,
       className,
       messageClassName,
       role,
+      isLoading = true,
       ...props
     },
     ref,
@@ -63,36 +49,46 @@ const MessageCard = React.forwardRef<HTMLDivElement, MessageCardProps>(
             shape="circle"
             isInvisible
           >
-            <Avatar src={avatar} />
+            <Avatar size="sm" src={avatar} />
           </Badge>
         </div>
         <div className="flex flex-col gap-4">
           <div
             className={cn(
-              "relative w-full rounded-medium bg-content2 px-4 py-3 text-default-600",
+              "relative w-full rounded-medium bg-content2 px-4 py-2 text-default-600",
             )}
           >
             <div ref={messageRef} className={"text-small"}>
-              <ReactMarkdown
-                components={{
-                  a: ({ node, ...props }) => (
-                    <a
-                      {...props}
-                      className="text-primary underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    />
-                  ),
-                  strong: ({ node, ...props }) => (
-                    <strong {...props} className="text-default-800" />
-                  ),
-                  p: ({ node, ...props }) => (
-                    <p {...props} className={role === "model" ? "mb-2" : ""} />
-                  ),
-                }}
-              >
-                {message as string}
-              </ReactMarkdown>
+              {isLoading && role === "model" ? (
+                <div className="flex gap-1 items-center">
+                  <Icon icon="mynaui:atom" width="18" />
+                  <p>Thinking...</p>
+                </div>
+              ) : (
+                <ReactMarkdown
+                  components={{
+                    a: ({ node, ...props }) => (
+                      <a
+                        {...props}
+                        className="text-primary underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      />
+                    ),
+                    strong: ({ node, ...props }) => (
+                      <strong {...props} className="text-default-800" />
+                    ),
+                    p: ({ node, ...props }) => (
+                      <p
+                        {...props}
+                        className={role === "model" ? "mb-2" : ""}
+                      />
+                    ),
+                  }}
+                >
+                  {message as string}
+                </ReactMarkdown>
+              )}
             </div>
           </div>
         </div>

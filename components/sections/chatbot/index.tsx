@@ -9,7 +9,7 @@ const Chatbot = () => {
         "flex relative overflow-y-scroll max-w-5xl mx-auto h-full w-full flex-col gap-8",
       )}
     >
-      <ScrollShadow className={cn("flex pb-60 h-full flex-col")}>
+      <ScrollShadow className={cn("flex h-full flex-col")}>
         <Conversation />
       </ScrollShadow>
     </div>
