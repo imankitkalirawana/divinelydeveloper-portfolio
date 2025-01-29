@@ -42,11 +42,11 @@ const Skills = () => {
             className="absolute -z-10 top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%]"
           >
             <div className="md:text-[90px] font-extrabold text-[50px] leading-[50px] md:leading-[90px] text-center">
-              My Great
+              Areas Of
             </div>
             <Marquee pauseOnHover={false} className="[--duration:20s]">
               <div className="md:text-[200px] uppercase md:leading-[200px] text-[100px] leading-[100px] after:content-['•'] font-extrabold italic font-pp-migra text-primary after:text-secondary">
-                Skills
+                Expertise
               </div>
             </Marquee>
           </motion.div>
