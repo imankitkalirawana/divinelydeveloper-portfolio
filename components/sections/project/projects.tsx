@@ -2,7 +2,7 @@
 import { isImage } from "@/functions/utility";
 import { Project } from "@/lib/interface";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Chip, cn, Skeleton } from "@nextui-org/react";
+import { Chip, cn, ScrollShadow, Skeleton } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -161,7 +161,10 @@ function ProjectCard({
         </div>
 
         <div className="flex flex-col  gap-2">
-          <div className="flex flex-wrap gap-2">
+          <ScrollShadow
+            orientation="horizontal"
+            className="flex gap-2 no-scrollbar"
+          >
             {project.technologies.map((tech) => (
               <Chip
                 key={tech}
@@ -169,10 +172,10 @@ function ProjectCard({
                 className="capitalize"
                 startContent={<Icon icon={tech} className="mx-1" />}
               >
-                {tech.split("-").pop()}
+                {tech.split(/[:-]/).pop()}
               </Chip>
             ))}
-          </div>
+          </ScrollShadow>
         </div>
       </Link>
     </motion.div>
