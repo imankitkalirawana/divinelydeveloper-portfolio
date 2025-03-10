@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import Navbar from "@/components/sections/navbar";
 import { auth } from "@/auth";
 import ChatbotPopup from "@/components/sections/chatbot-popup";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Bhuneshvar - Divinely Developer",
@@ -56,6 +57,11 @@ export default async function RootLayout({
           <ChatbotPopup />
           <main className="mt-24">{children}</main>
         </Providers>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.UMAMI_WEBSITE_ID as string}
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
